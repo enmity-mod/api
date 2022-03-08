@@ -1,0 +1,122 @@
+{
+  "name": "enmity-api",
+  "description": "Api wrapper for Enmity.",
+  "version": "1.0.0",
+  "license": "GPL-3.0",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enmity-mod/Enmity-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/enmity-mod/Enmity-api/issues"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^8.6.0",
+    "typescript": "^4.5.4"
+  },
+  "exports": {
+    "./clyde": {
+      "types": "./dist/clyde.d.ts",
+      "import": "./dist/clyde.js"
+    },
+    "./commands": {
+      "types": "./dist/commands.d.ts",
+      "import": "./dist/commands.js"
+    },
+    "./dialog": {
+      "types": "./dist/dialog.d.ts",
+      "import": "./dist/dialog.js"
+    },
+    "./module": {
+      "types": "./dist/module.d.ts",
+      "import": "./dist/module.js"
+    },
+    "./native": {
+      "types": "./dist/native.d.ts",
+      "import": "./dist/native.js"
+    },
+    "./patcher": {
+      "types": "./dist/patcher.d.ts",
+      "import": "./dist/patcher.js"
+    },
+    "./plugins": {
+      "types": "./dist/plugins.d.ts",
+      "import": "./dist/plugins.js"
+    },
+    "./rest": {
+      "types": "./dist/rest.d.ts",
+      "import": "./dist/rest.js"
+    },
+    "./storage": {
+      "types": "./dist/storage.d.ts",
+      "import": "./dist/storage.js"
+    },
+    "./themes": {
+      "types": "./dist/themes.d.ts",
+      "import": "./dist/themes.js"
+    },
+    "./toast": {
+      "types": "./dist/toast.d.ts",
+      "import": "./dist/toast.js"
+    },
+    "./token": {
+      "types": "./dist/token.d.ts",
+      "import": "./dist/token.js"
+    },
+    "./users": {
+      "types": "./dist/users.d.ts",
+      "import": "./dist/users.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/index.d.ts"
+      ],
+      "clyde": [
+        "./dist/clyde.d.ts"
+      ],
+      "commands": [
+        "./dist/commands.d.ts"
+      ],
+      "dialog": [
+        "./dist/dialog.d.ts"
+      ],
+      "module": [
+        "./dist/module.d.ts"
+      ],
+      "native": [
+        "./dist/native.d.ts"
+      ],
+      "patcher": [
+        "./dist/patcher.d.ts"
+      ],
+      "plugins": [
+        "./dist/plugins.d.ts"
+      ],
+      "rest": [
+        "./dist/rest.d.ts"
+      ],
+      "storage": [
+        "./dist/storage.d.ts"
+      ],
+      "themes": [
+        "./dist/themes.d.ts"
+      ],
+      "toast": [
+        "./dist/toast.d.ts"
+      ],
+      "token": [
+        "./dist/token.d.ts"
+      ],
+      "users": [
+        "./dist/users.d.ts"
+      ]
+    }
+  }
+}
