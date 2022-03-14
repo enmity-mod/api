@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enmity-mod/Enmity-api.git"
+    "url": "git+https://github.com/enmity-mod/enmity-api.git"
   },
   "bugs": {
-    "url": "https://github.com/enmity-mod/Enmity-api/issues"
+    "url": "https://github.com/enmity-mod/enmity-api/issues"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.14.0",
