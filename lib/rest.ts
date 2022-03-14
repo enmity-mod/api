@@ -1,20 +1,56 @@
-interface RestOptions {
+/**
+ * Options for a request.
+ */
+export interface RestOptions {
+  /**
+   * URL of the request.
+   */
   url: string;
+
+  /**
+   * Body of the request.
+   * Must be an object.
+   */
   body?: Record<string, any>;
 }
 
-interface RestResponse {
+/**
+ * Response for a request.
+ */
+export interface RestResponse {
+  /**
+   * Is the request okay.
+   */
   ok: boolean;
+
+  /**
+   * Response's headers.
+   */
   headers: Record<string, string>;
+
+  /**
+   * Response's body.
+   * Can be either a string or an object.
+   */
   body?: string | Record<string, any>;
+
+  /**
+   * Response's text.
+   */
   text: string;
+
+  /**
+   * Response's status code.
+   */
   status: number;
 }
 
 /**
- * Do a GET request
+ * Execute a GET request.
+ * @param {RestOptions | string} data Request's data, can be an URL or {@link RestOptions}
+ * @returns {Promise<RestResponse>} Request's response
  */
-async function get(data: RestOptions | string): Promise<RestResponse> {
+async function getRequest(data: RestOptions | string): Promise<RestResponse> {
   return new Promise((resolve, reject) => {
     window.enmity.rest.get(data).then((response: RestResponse) => {
       resolve(response);
@@ -25,9 +61,11 @@ async function get(data: RestOptions | string): Promise<RestResponse> {
 }
 
 /**
- * Do a POST request
+ * Execute a post request.
+ * @param {RestOptions | string} data Request's data, can be an URL or {@link RestOptions}
+ * @returns {Promise<RestResponse>} Request's response
  */
-async function post(data: RestOptions | string): Promise<RestResponse> {
+async function postRequest(data: RestOptions | string): Promise<RestResponse> {
   return new Promise((resolve, reject) => {
     window.enmity.rest.post(data).then((response: RestResponse) => {
       resolve(response);
@@ -38,9 +76,11 @@ async function post(data: RestOptions | string): Promise<RestResponse> {
 }
 
 /**
- * Do a PUT request
+ * Execute a PUT request.
+ * @param {RestOptions | string} data Request's data, can be an URL or {@link RestOptions}
+ * @returns {Promise<RestResponse>} Request's response
  */
-async function put(data: RestOptions | string): Promise<RestResponse> {
+async function putRequest(data: RestOptions | string): Promise<RestResponse> {
   return new Promise((resolve, reject) => {
     window.enmity.rest.put(data).then((response: RestResponse) => {
       resolve(response);
@@ -51,9 +91,11 @@ async function put(data: RestOptions | string): Promise<RestResponse> {
 }
 
 /**
- * Do a PATCH request
+ * Execute a PATCH request.
+ * @param {RestOptions | string} data Request's data, can be an URL or {@link RestOptions}
+ * @returns {Promise<RestResponse>} Request's response
  */
-async function patch(data: RestOptions | string): Promise<RestResponse> {
+async function patchRequest(data: RestOptions | string): Promise<RestResponse> {
   return new Promise((resolve, reject) => {
     window.enmity.rest.patch(data).then((response: RestResponse) => {
       resolve(response);
@@ -64,9 +106,11 @@ async function patch(data: RestOptions | string): Promise<RestResponse> {
 }
 
 /**
- * Do a DELETE request
+ * Execute a DELETE request.
+ * @param {RestOptions | string} data Request's data, can be an URL or {@link RestOptions}
+ * @returns {Promise<RestResponse>} Request's response
  */
-async function _delete(data: RestOptions | string): Promise<RestResponse> {
+async function deleteRequest(data: RestOptions | string): Promise<RestResponse> {
   return new Promise((resolve, reject) => {
     window.enmity.rest.delete(data).then((response: RestResponse) => {
       resolve(response);
@@ -77,17 +121,17 @@ async function _delete(data: RestOptions | string): Promise<RestResponse> {
 }
 
 /**
- * Get the base URL for the Discord's API
+ * Get the base URL for Discord's API
+ * @returns {Promise<string>}
  */
-async function getAPIBaseURL() {
+export async function getAPIBaseURL(): Promise<string> {
   return window.enmity.rest.getAPIBaseURL();
 }
 
 export {
-  get,
-  post,
-  put,
-  patch,
-  _delete as delete,
-  getAPIBaseURL
-}
+  getRequest as get,
+  postRequest as post,
+  putRequest as put,
+  patchRequest as patch,
+  deleteRequest as delete,
+};

@@ -1,63 +1,192 @@
-import { Message } from "./common";
+import { Message } from './common';
 
+/**
+ * Generic interface that implements name and displayName.
+ */
 interface HasName {
+  /**
+   * Internal name.
+   */
   name: string;
+
+  /**
+   * Displayed name.
+   */
   displayName: string;
 }
 
+/**
+ * Generic interface that implements description and displayDescription.
+ */
+
 interface HasDescription {
+  /**
+   * Internal description.
+   */
   description: string;
+
+  /**
+   * Displayed description.
+   */
   displayDescription: string;
 }
 
-interface Section {
+/**
+ * Represents a Discord section.
+ */
+export interface Section {
+  /**
+   * ID of the section.
+   */
   id: string;
+
+  /**
+   * Type of the section.
+   */
   type: number;
+
+  /**
+   * Name of the section.
+   */
   name: string;
 }
 
-interface Command extends HasName, HasDescription {
+/**
+ * Represents a Discord command.
+ */
+export interface Command extends HasName, HasDescription {
+  /**
+   * ID of the command.
+   */
   id: string;
+
+  /**
+   * ID of the application the command belongs to.
+   *
+   * You should use {@link EnmitySectionID} for your custom commands.
+   */
   applicationId: string;
 
+  /**
+   * Type of the command.
+   * @see {@link ApplicationCommandType}
+   */
   type: ApplicationCommandType;
+
+  /**
+   * Input type of the command.
+   * @see {@link ApplicationCommandInputType}
+   */
   inputType: ApplicationCommandInputType;
+
+  /**
+   * List of options for the command.
+   * @see {@link CommandOption}
+   */
   options?: CommandOption[];
 
-  predicate?: (message: Message) => void;
+  /**
+   * Function that's used to check if the command can be executed.
+   * @param {Message} message
+   * @returns {boolean}
+   */
+  predicate?: (message: Message) => boolean;
+
+  /**
+   * Function that'll be executed when the command is ran.
+   * @param {Argument[]} args List of arguments according to the command's options
+   * @param {Message} message Message associated with the executed command
+   */
   execute: (args: Argument[], message?: Message) => void;
 }
 
-interface Argument {
+/**
+ * Argument for a Discord command.
+ */
+export interface Argument {
+  /**
+   * Name of the argument.
+   *
+   * Will match the option's name.
+   * @see {@link CommandOption}
+   */
   name: string;
+
+  /**
+   * Value of the argument.
+   */
   value: string;
+
+  /**
+   * Type of the argument.
+   *
+   * Will match the options's type.
+   * @see {@link ApplicationCommandOptionType}
+   */
   type: number;
-  focused?: any; // TODO: Figure out what focused is
+
+  /**
+   * Is the argument focused.
+   *
+   * Not sure if this value is actually useful.
+   */
+  focused?: boolean;
 }
 
-interface CommandOption extends HasName, HasDescription {
+/**
+ * Option for a command.
+ */
+export interface CommandOption extends HasName, HasDescription {
+  /**
+   * Type of the option
+   * @see {@link ApplicationCommandOptionType}
+   */
   type: ApplicationCommandOptionType;
+
+  /**
+   * Is the option required.
+   */
   required?: boolean;
+
+  /**
+   * Choices of the option.
+   * @see {@link CommandChoice}
+   */
   choices?: CommandChoice[];
 }
 
-interface CommandChoice extends HasName {
+/**
+ * Choice for an option.
+ */
+export interface CommandChoice extends HasName {
+  /**
+   * Value of the choice.
+   */
   value: string;
 }
 
-enum ApplicationCommandSectionType {
+/**
+ * Type of a command section.
+ */
+export enum ApplicationCommandSectionType {
   BuiltIn = 0,
   Guild = 1,
   DM = 2,
 }
 
-enum ApplicationCommandType {
+/**
+ * Type of a command.
+ */
+export enum ApplicationCommandType {
   Chat = 1,
   User = 2,
   Message = 3,
 }
 
-enum ApplicationCommandInputType {
+/**
+ * Input type of a command.
+ */
+export enum ApplicationCommandInputType {
   BuiltIn = 0,
   BuiltInText = 1,
   BuiltInIntegration = 2,
@@ -65,12 +194,18 @@ enum ApplicationCommandInputType {
   Placeholder = 4,
 }
 
-enum ApplicationCommandPermissionType {
+/**
+ * Permission type of a command.
+ */
+export enum ApplicationCommandPermissionType {
   Role = 1,
   User = 2,
 }
 
-enum ApplicationCommandOptionType {
+/**
+ * Option type for an option.
+ */
+export enum ApplicationCommandOptionType {
   SubCommand = 1,
   SubCommandGroup = 2,
 
@@ -85,46 +220,32 @@ enum ApplicationCommandOptionType {
   Number = 10,
 }
 
-enum InteractionTypes {
+/**
+ * Type for an interaction.
+ */
+export enum InteractionTypes {
   ApplicationCommand = 2,
   MessageComponent = 3,
 }
 
-// Section ID used for Enmity built-in commands
-const EnmitySectionID = "enmity";
+/**
+ * Section ID used for Enmity built-in commands.
+ */
+export const EnmitySectionID = 'enmity';
 
 /**
- * Add new commands to Discord
+ * Register a new command in Discord.
+ * @param {string} caller Name of the caller
+ * @param {Command[]} commands Commands to register
  */
-function registerCommands(caller: string, commands: Command[]) {
+export function registerCommands(caller: string, commands: Command[]): void {
   window.enmity.commands.registerCommands(caller, commands);
 }
 
 /**
- * Remove all commands
+ * Remove all commands registered by a caller.
+ * @param {string} caller Name of the caller
  */
-function unregisterCommands(caller: string) {
+export function unregisterCommands(caller: string): void {
   window.enmity.commands.unregisterCommands(caller);
 }
-
-export {
-  EnmitySectionID,
-  registerCommands,
-  unregisterCommands
-};
-
-export {
-  Section,
-  Command,
-  Argument,
-  CommandOption,
-  CommandChoice,
-
-  ApplicationCommandSectionType,
-  ApplicationCommandType,
-  ApplicationCommandInputType,
-  ApplicationCommandPermissionType,
-  ApplicationCommandOptionType,
-  
-  InteractionTypes
-};

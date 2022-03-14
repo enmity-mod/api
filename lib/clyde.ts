@@ -1,10 +1,8 @@
 /**
- * Send a reply as Clyde
+ * Send a reply as Clyde.
+ * @param {string} channelID ID of the channel to reply in
+ * @param {string} content Content of the message
  */
-function sendReply(channelID: string, content: string) {
+export function sendReply(channelID: string, content: string): void {
   window.enmity.clyde.sendReply(channelID, content);
-}
-
-export {
-  sendReply
 }

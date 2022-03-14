@@ -1,10 +1,24 @@
-interface Theme {
+/**
+ * Represents a Theme.
+*/
+export interface Theme {
+  /**
+   * Name of the theme.
+   */
   name: string;
+
+  /**
+   * Values of {@link ThemeColorMap} that'll be replaced.
+   */
   theme_color_map: Partial<ThemeColorMap>;
+
+  /**
+   * Values of {@link Colors} that'll be replaced.
+   */
   colors: Partial<Colors>;
 }
 
-interface ThemeColorMap {
+export interface ThemeColorMap {
   HEADER_PRIMARY: string[];
   HEADER_SECONDARY: string[];
   TEXT_NORMAL: string[];
@@ -82,7 +96,7 @@ interface ThemeColorMap {
   DEPRECATED_TEXT_INPUT_PREFIX: string[];
 }
 
-interface Colors {
+export interface Colors {
   PRIMARY_DARK_100: string;
   PRIMARY_DARK_130: string;
   PRIMARY_DARK_160: string;
@@ -531,44 +545,32 @@ interface Colors {
 }
 
 /**
- * Get the currently loaded theme
+ * Get the current theme.
+ * @returns {string}
  */
-function getTheme(): Theme {
+export function getTheme(): string {
   return window.enmity.themer.getTheme();
 }
 
 /**
- * List the available themes
+ * List the installed themes.
+ * @returns {Theme[]}
  */
-function listThemes(): Theme[] {
+export function listThemes(): Theme[] {
   return window.enmity.themer.listThemes();
 }
 
 /**
- * Apply a theme by name
+ * Apply a theme by name.
+ * @param {string} name
  */
-function applyTheme(name: string): void {
+export function applyTheme(name: string): void {
   window.enmity.themer.applyTheme(name);
 }
 
 /**
- * Register a theme
+ * Remove the currently applied theme.
  */
-function registerTheme(theme: Theme): void {
-  window.enmity.themer.registerTheme(theme);
-}
-
-/**
- * Remove the currently applied theme
- */
-function removeTheme(): void {
+export function removeTheme(): void {
   window.enmity.themer.removeTheme();
 }
-
-export {
-  getTheme,
-  listThemes,
-  applyTheme,
-  registerTheme,
-  removeTheme,
-};

@@ -1,9 +1,10 @@
-import { Profile, User } from "./common";
+import { Profile, User } from './common';
 
 /**
- * Fetch currently logged in user
+ * Fetch current user.
+ * @returns {Promise<User>}
  */
-async function fetchCurrentUser(): Promise<User> {
+export async function fetchCurrentUser(): Promise<User> {
   return new Promise((resolve, reject) => {
     window.enmity.users.fetchCurrentUser().then((user: any) => {
       resolve(user);
@@ -12,9 +13,11 @@ async function fetchCurrentUser(): Promise<User> {
 }
 
 /**
- * Fetch a profile 
+ * Fetch a profile.
+ * @param {string} userID
+ * @returns {Promise<Profile>}
  */
-async function fetchProfile(userID: string): Promise<Profile> {
+export async function fetchProfile(userID: string): Promise<Profile> {
   return new Promise((resolve, reject) => {
     window.enmity.users.fetchProfile(userID).then((user: any) => {
       resolve(user);
@@ -23,19 +26,14 @@ async function fetchProfile(userID: string): Promise<Profile> {
 }
 
 /**
- * Get an user
+ * Get an user.
+ * @param {string} userID
+ * @returns {Promise<User>}
  */
-async function getUser(userID: string): Promise<User> {
+export async function getUser(userID: string): Promise<User> {
   return new Promise((resolve, reject) => {
     window.enmity.users.getUser(userID).then((user: any) => {
       resolve(user);
     }).catch(reject);
   });
-}
-
-export {
-  fetchCurrentUser,
-  fetchProfile,
-
-  getUser
 }

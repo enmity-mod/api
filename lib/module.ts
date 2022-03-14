@@ -1,47 +1,78 @@
+export function getModule(
+  filter: (module: ModuleExports) => boolean,
+  exports?: true
+): ModuleExports;
+
+export function getModule(
+  filter: (module: ModuleExports) => boolean,
+  exports?: false
+): Module;
+
 /**
- * getModule
- * Get/Find a Discord module
- * Example: getModule(m => m.API_HOST)
- * @returns Module
+ * Find a Discord module.
+ * Will return the first module that matches the filter.
+ * @example getModule(m => m.key)
+ *
+ * @param {(ModuleExports) => boolean} filter Search filter
+ * @param {boolean} exports Return the modules with or without exports
+ * @returns {Module | ExportedModule}
  */
-function getModule(filter: (module: any) => boolean, exports?: true): ExportedModule;
-function getModule(filter: (module: any) => boolean, exports?: false): Module;
-function getModule(filter: (module: any) => boolean, exports = true): Module | ExportedModule {
-  const module = window.enmity.getModule(filter, exports);
-  return module;
+export function getModule(
+  filter: (module: ModuleExports) => boolean,
+  exports = true,
+): Module | ModuleExports {
+  return window.enmity.getModule(filter, exports);
 }
 
-function getModules(filter: (module: any) => boolean, first = false): number[] {
+/**
+ * Get the IDs of the modules that matches the filter.
+ * @example getModules(m => m.key)
+ *
+ * @param {(ModuleExports) => boolean} filter Search filter
+ * @param {boolean} first Return the first matched module
+ * @returns {number[]} IDs of the matched modules
+ */
+export function getModules(filter: (module: ModuleExports) => boolean, first = false): number[] {
   return window.enmity.getModules(filter, first);
 }
 
-function getModuleByProps(...props: string[]): ExportedModule {
+/**
+ * Get a module via props.
+ * @param {string[]} props Properties to search for
+ * @returns {ModuleExports}
+ */
+export function getModuleByProps(...props: string[]): ModuleExports {
   return window.enmity.getModuleByProps(props);
 }
 
-function getModuleByIndex(id: string): Module {
+/**
+ * Get a module via it's id
+ * @param {string} id ID of the module
+ * @returns {Module}
+ */
+export function getModuleByIndex(id: string): Module {
   return window.enmity.getModuleByIndex(id);
 }
 
 declare global {
   interface Window {
-    enmity: any;
+    enmity: Record<string, any>;
   }
 }
 
-declare interface Module {
+/**
+ * Represents a module.
+ */
+export interface Module {
   id: string;
-  exports: ExportedModule
+  exports: ModuleExports
 }
 
-declare interface ExportedModule {
-  default?: {[key: string]: any};
+/**
+ * Represents a module's exports.
+ * Modules are Javascript objects.
+ */
+export interface ModuleExports {
+  default?: { [key: string]: any };
   [key: string]: any;
-}
-
-export {
-  getModule,
-  getModules,
-  getModuleByProps,
-  getModuleByIndex
 }

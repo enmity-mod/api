@@ -1,4 +1,7 @@
-interface Channel {
+/**
+ * Represents a Discord channel.
+ */
+export interface Channel {
   id: string;
   guild_id: string;
   type: number;
@@ -31,24 +34,36 @@ interface Channel {
   threadMetadata?: any;
 }
 
-interface Permission {
+/**
+ * Represents a Discord permission.
+ */
+export interface Permission {
   parts: number[];
   str: string;
 }
 
-interface ChannelPermission {
+/**
+ * Represents a Discord channel permission
+ */
+export interface ChannelPermission {
   id: string;
   type: number;
   allow: Permission;
   deny: Permission;
 }
 
-interface Message {
+/**
+ * Represents a Discord message
+ */
+export interface Message {
   guild: Guild;
   channel: Channel;
 }
 
-interface Guild {
+/**
+ * Represents a Discord guild
+ */
+export interface Guild {
   id: string;
   name: string;
   description?: string;
@@ -84,7 +99,10 @@ interface Guild {
   hubType: number;
 }
 
-interface Role {
+/**
+ * Represents a Discord role
+ */
+export interface Role {
   id: string;
   name: string;
   permissions: Permission;
@@ -100,7 +118,10 @@ interface Role {
   unicodeEmoji?: string;
 }
 
-interface User {
+/**
+ * Represents a Discord user
+ */
+export interface User {
   id: string;
   discriminator: string;
   username: string;
@@ -125,19 +146,23 @@ interface User {
   guildMemberAvatars?: unknown;
 }
 
-interface Account {
+/**
+ * Represents a Discord account
+ */
+export interface Account {
   type: string;
   id: string;
   name: string;
   verified: boolean;
 }
 
-interface Profile {
+/**
+ * Represents a Discord profile
+ */
+export interface Profile {
   user: User;
   connected_accounts: Account[];
   premium_since: string;
   premium_guild_since: string;
   mutual_guilds: Guild[];
 }
-
-export { Message, Channel, Permission, ChannelPermission, Guild, Role, User, Account, Profile };

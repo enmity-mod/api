@@ -1,43 +1,34 @@
 /**
- * This function will reload Discord entirely, including reloading plugins
+ * Reload Discord.
  */
-function reloadDiscord() {
+export function reloadDiscord(): void {
   window.enmity.native.reloadDiscord();
 }
 
 /**
- * Get the Discord's version
+ * Get Discord's version
  */
-function getVersion() {
+export function getVersion(): void {
   return window.enmity.native.Version;
 }
 
 /**
- * Get the Discord's build number
+ * Get Discord's build number.
  */
-function getBuild() {
+export function getBuild(): void {
   return window.enmity.native.Build;
 }
 
 /**
- * Get the user's device
+ * Get user's device identifier.
  */
-function getDevice() {
+export function getDevice(): void {
   return window.enmity.native.device;
 }
 
 /**
- * Get the user's device version
+ * Get user's device version.
  */
-function getSystemVersion() {
+export function getSystemVersion(): void {
   return window.enmity.native.systemVersion;
-}
-
-export {
-  reloadDiscord,
-
-  getVersion,
-  getBuild,
-  getDevice,
-  getSystemVersion
 }
