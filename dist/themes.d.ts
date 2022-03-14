@@ -1,9 +1,9 @@
-interface Theme {
+export interface Theme {
     name: string;
     theme_color_map: Partial<ThemeColorMap>;
     colors: Partial<Colors>;
 }
-interface ThemeColorMap {
+export interface ThemeColorMap {
     HEADER_PRIMARY: string[];
     HEADER_SECONDARY: string[];
     TEXT_NORMAL: string[];
@@ -80,7 +80,7 @@ interface ThemeColorMap {
     DEPRECATED_TEXT_INPUT_BORDER_DISABLED: string[];
     DEPRECATED_TEXT_INPUT_PREFIX: string[];
 }
-interface Colors {
+export interface Colors {
     PRIMARY_DARK_100: string;
     PRIMARY_DARK_130: string;
     PRIMARY_DARK_160: string;
@@ -527,9 +527,7 @@ interface Colors {
     GITHUB: string;
     TRANSPARENT: string;
 }
-declare function getTheme(): Theme;
-declare function listThemes(): Theme[];
-declare function applyTheme(name: string): void;
-declare function registerTheme(theme: Theme): void;
-declare function removeTheme(): void;
-export { getTheme, listThemes, applyTheme, registerTheme, removeTheme, };
+export declare function getTheme(): string;
+export declare function listThemes(): Theme[];
+export declare function applyTheme(name: string): void;
+export declare function removeTheme(): void;

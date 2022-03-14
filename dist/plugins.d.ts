@@ -1,6 +1,6 @@
-import { Command } from "./commands";
-import { Patchable } from "./patcher";
-interface Plugin {
+import { Command } from './commands';
+import { Patchable } from './patcher';
+export interface Plugin {
     name: string;
     commands?: Command[];
     patches?: Patchable[];
@@ -9,7 +9,6 @@ interface Plugin {
     onEnable?: () => void;
     onDisable?: () => void;
 }
-declare function registerPlugin(plugin: Plugin): void;
-declare function getPlugin(name: string): any;
-declare function getPlugins(): any;
-export { Plugin, registerPlugin, getPlugin, getPlugins };
+export declare function registerPlugin(plugin: Plugin): void;
+export declare function getPlugin(name: string): void;
+export declare function getPlugins(): Plugin[];

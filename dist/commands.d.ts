@@ -1,4 +1,4 @@
-import { Message } from "./common";
+import { Message } from './common';
 interface HasName {
     name: string;
     displayName: string;
@@ -7,56 +7,56 @@ interface HasDescription {
     description: string;
     displayDescription: string;
 }
-interface Section {
+export interface Section {
     id: string;
     type: number;
     name: string;
 }
-interface Command extends HasName, HasDescription {
+export interface Command extends HasName, HasDescription {
     id: string;
     applicationId: string;
     type: ApplicationCommandType;
     inputType: ApplicationCommandInputType;
     options?: CommandOption[];
-    predicate?: (message: Message) => void;
+    predicate?: (message: Message) => boolean;
     execute: (args: Argument[], message?: Message) => void;
 }
-interface Argument {
+export interface Argument {
     name: string;
     value: string;
     type: number;
-    focused?: any;
+    focused?: boolean;
 }
-interface CommandOption extends HasName, HasDescription {
+export interface CommandOption extends HasName, HasDescription {
     type: ApplicationCommandOptionType;
     required?: boolean;
     choices?: CommandChoice[];
 }
-interface CommandChoice extends HasName {
+export interface CommandChoice extends HasName {
     value: string;
 }
-declare enum ApplicationCommandSectionType {
+export declare enum ApplicationCommandSectionType {
     BuiltIn = 0,
     Guild = 1,
     DM = 2
 }
-declare enum ApplicationCommandType {
+export declare enum ApplicationCommandType {
     Chat = 1,
     User = 2,
     Message = 3
 }
-declare enum ApplicationCommandInputType {
+export declare enum ApplicationCommandInputType {
     BuiltIn = 0,
     BuiltInText = 1,
     BuiltInIntegration = 2,
     Bot = 3,
     Placeholder = 4
 }
-declare enum ApplicationCommandPermissionType {
+export declare enum ApplicationCommandPermissionType {
     Role = 1,
     User = 2
 }
-declare enum ApplicationCommandOptionType {
+export declare enum ApplicationCommandOptionType {
     SubCommand = 1,
     SubCommandGroup = 2,
     String = 3,
@@ -68,12 +68,11 @@ declare enum ApplicationCommandOptionType {
     Mentionnable = 9,
     Number = 10
 }
-declare enum InteractionTypes {
+export declare enum InteractionTypes {
     ApplicationCommand = 2,
     MessageComponent = 3
 }
-declare const EnmitySectionID = "enmity";
-declare function registerCommands(caller: string, commands: Command[]): void;
-declare function unregisterCommands(caller: string): void;
-export { EnmitySectionID, registerCommands, unregisterCommands };
-export { Section, Command, Argument, CommandOption, CommandChoice, ApplicationCommandSectionType, ApplicationCommandType, ApplicationCommandInputType, ApplicationCommandPermissionType, ApplicationCommandOptionType, InteractionTypes };
+export declare const EnmitySectionID = "enmity";
+export declare function registerCommands(caller: string, commands: Command[]): void;
+export declare function unregisterCommands(caller: string): void;
+export {};

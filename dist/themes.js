@@ -1,16 +1,12 @@
-function getTheme() {
+export function getTheme() {
     return window.enmity.themer.getTheme();
 }
-function listThemes() {
+export function listThemes() {
     return window.enmity.themer.listThemes();
 }
-function applyTheme(name) {
+export function applyTheme(name) {
     window.enmity.themer.applyTheme(name);
 }
-function registerTheme(theme) {
-    window.enmity.themer.registerTheme(theme);
-}
-function removeTheme() {
+export function removeTheme() {
     window.enmity.themer.removeTheme();
 }
-export { getTheme, listThemes, applyTheme, registerTheme, removeTheme, };

@@ -1,16 +1,16 @@
-var ApplicationCommandSectionType;
+export var ApplicationCommandSectionType;
 (function (ApplicationCommandSectionType) {
     ApplicationCommandSectionType[ApplicationCommandSectionType["BuiltIn"] = 0] = "BuiltIn";
     ApplicationCommandSectionType[ApplicationCommandSectionType["Guild"] = 1] = "Guild";
     ApplicationCommandSectionType[ApplicationCommandSectionType["DM"] = 2] = "DM";
 })(ApplicationCommandSectionType || (ApplicationCommandSectionType = {}));
-var ApplicationCommandType;
+export var ApplicationCommandType;
 (function (ApplicationCommandType) {
     ApplicationCommandType[ApplicationCommandType["Chat"] = 1] = "Chat";
     ApplicationCommandType[ApplicationCommandType["User"] = 2] = "User";
     ApplicationCommandType[ApplicationCommandType["Message"] = 3] = "Message";
 })(ApplicationCommandType || (ApplicationCommandType = {}));
-var ApplicationCommandInputType;
+export var ApplicationCommandInputType;
 (function (ApplicationCommandInputType) {
     ApplicationCommandInputType[ApplicationCommandInputType["BuiltIn"] = 0] = "BuiltIn";
     ApplicationCommandInputType[ApplicationCommandInputType["BuiltInText"] = 1] = "BuiltInText";
@@ -18,12 +18,12 @@ var ApplicationCommandInputType;
     ApplicationCommandInputType[ApplicationCommandInputType["Bot"] = 3] = "Bot";
     ApplicationCommandInputType[ApplicationCommandInputType["Placeholder"] = 4] = "Placeholder";
 })(ApplicationCommandInputType || (ApplicationCommandInputType = {}));
-var ApplicationCommandPermissionType;
+export var ApplicationCommandPermissionType;
 (function (ApplicationCommandPermissionType) {
     ApplicationCommandPermissionType[ApplicationCommandPermissionType["Role"] = 1] = "Role";
     ApplicationCommandPermissionType[ApplicationCommandPermissionType["User"] = 2] = "User";
 })(ApplicationCommandPermissionType || (ApplicationCommandPermissionType = {}));
-var ApplicationCommandOptionType;
+export var ApplicationCommandOptionType;
 (function (ApplicationCommandOptionType) {
     ApplicationCommandOptionType[ApplicationCommandOptionType["SubCommand"] = 1] = "SubCommand";
     ApplicationCommandOptionType[ApplicationCommandOptionType["SubCommandGroup"] = 2] = "SubCommandGroup";
@@ -36,17 +36,15 @@ var ApplicationCommandOptionType;
     ApplicationCommandOptionType[ApplicationCommandOptionType["Mentionnable"] = 9] = "Mentionnable";
     ApplicationCommandOptionType[ApplicationCommandOptionType["Number"] = 10] = "Number";
 })(ApplicationCommandOptionType || (ApplicationCommandOptionType = {}));
-var InteractionTypes;
+export var InteractionTypes;
 (function (InteractionTypes) {
     InteractionTypes[InteractionTypes["ApplicationCommand"] = 2] = "ApplicationCommand";
     InteractionTypes[InteractionTypes["MessageComponent"] = 3] = "MessageComponent";
 })(InteractionTypes || (InteractionTypes = {}));
-const EnmitySectionID = "enmity";
-function registerCommands(caller, commands) {
+export const EnmitySectionID = 'enmity';
+export function registerCommands(caller, commands) {
     window.enmity.commands.registerCommands(caller, commands);
 }
-function unregisterCommands(caller) {
+export function unregisterCommands(caller) {
     window.enmity.commands.unregisterCommands(caller);
 }
-export { EnmitySectionID, registerCommands, unregisterCommands };
-export { ApplicationCommandSectionType, ApplicationCommandType, ApplicationCommandInputType, ApplicationCommandPermissionType, ApplicationCommandOptionType, InteractionTypes };

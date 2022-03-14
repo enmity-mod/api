@@ -1,6 +1,5 @@
-declare function reloadDiscord(): void;
-declare function getVersion(): any;
-declare function getBuild(): any;
-declare function getDevice(): any;
-declare function getSystemVersion(): any;
-export { reloadDiscord, getVersion, getBuild, getDevice, getSystemVersion };
+export declare function reloadDiscord(): void;
+export declare function getVersion(): void;
+export declare function getBuild(): void;
+export declare function getDevice(): void;
+export declare function getSystemVersion(): void;

@@ -1,4 +1,4 @@
-interface DialogOptions {
+export interface DialogOptions {
     title: string;
     body?: string;
     confirmText?: string;
@@ -9,5 +9,4 @@ interface DialogOptions {
     onSecondaryConfirm?: () => void;
     onCancel?: () => void;
 }
-declare function showDialog(options?: DialogOptions): void;
-export { showDialog };
+export declare function showDialog(options?: DialogOptions): void;

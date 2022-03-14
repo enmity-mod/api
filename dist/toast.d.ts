@@ -1,6 +1,5 @@
-interface ToastMessage {
+export interface ToastMessage {
     content: string;
     source: number;
 }
-declare function showToast(message: ToastMessage): void;
-export { showToast };
+export declare function showToast(message: ToastMessage): void;

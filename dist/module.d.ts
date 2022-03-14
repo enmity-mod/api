@@ -1,21 +1,20 @@
-declare function getModule(filter: (module: any) => boolean, exports?: true): ExportedModule;
-declare function getModule(filter: (module: any) => boolean, exports?: false): Module;
-declare function getModules(filter: (module: any) => boolean, first?: boolean): number[];
-declare function getModuleByProps(...props: string[]): ExportedModule;
-declare function getModuleByIndex(id: string): Module;
+export declare function getModule(filter: (module: ModuleExports) => boolean, exports?: true): ModuleExports;
+export declare function getModule(filter: (module: ModuleExports) => boolean, exports?: false): Module;
+export declare function getModules(filter: (module: ModuleExports) => boolean, first?: boolean): number[];
+export declare function getModuleByProps(...props: string[]): ModuleExports;
+export declare function getModuleByIndex(id: string): Module;
 declare global {
     interface Window {
-        enmity: any;
+        enmity: Record<string, any>;
     }
 }
-declare interface Module {
+export interface Module {
     id: string;
-    exports: ExportedModule;
+    exports: ModuleExports;
 }
-declare interface ExportedModule {
+export interface ModuleExports {
     default?: {
         [key: string]: any;
     };
     [key: string]: any;
 }
-export { getModule, getModules, getModuleByProps, getModuleByIndex };

@@ -1,4 +1,4 @@
-async function getItem(name) {
+export async function getItem(name) {
     return new Promise((resolve, reject) => {
         window.enmity.storage.getItem(name).then((data) => {
             resolve(data);
@@ -7,7 +7,7 @@ async function getItem(name) {
         });
     });
 }
-async function setItem(name, value) {
+export async function setItem(name, value) {
     return new Promise((resolve, reject) => {
         window.enmity.storage.setItem(name, value).then((data) => {
             resolve(data);
@@ -16,7 +16,7 @@ async function setItem(name, value) {
         });
     });
 }
-async function removeItem(name) {
+export async function removeItem(name) {
     return new Promise((resolve, reject) => {
         window.enmity.storage.removeItem(name).then(() => {
             resolve();
@@ -25,4 +25,3 @@ async function removeItem(name) {
         });
     });
 }
-export { getItem, setItem, removeItem };

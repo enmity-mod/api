@@ -1,16 +1,15 @@
-function reloadDiscord() {
+export function reloadDiscord() {
     window.enmity.native.reloadDiscord();
 }
-function getVersion() {
+export function getVersion() {
     return window.enmity.native.Version;
 }
-function getBuild() {
+export function getBuild() {
     return window.enmity.native.Build;
 }
-function getDevice() {
+export function getDevice() {
     return window.enmity.native.device;
 }
-function getSystemVersion() {
+export function getSystemVersion() {
     return window.enmity.native.systemVersion;
 }
-export { reloadDiscord, getVersion, getBuild, getDevice, getSystemVersion };

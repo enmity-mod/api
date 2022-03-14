@@ -1,4 +1,4 @@
-async function get(data) {
+async function getRequest(data) {
     return new Promise((resolve, reject) => {
         window.enmity.rest.get(data).then((response) => {
             resolve(response);
@@ -7,7 +7,7 @@ async function get(data) {
         });
     });
 }
-async function post(data) {
+async function postRequest(data) {
     return new Promise((resolve, reject) => {
         window.enmity.rest.post(data).then((response) => {
             resolve(response);
@@ -16,7 +16,7 @@ async function post(data) {
         });
     });
 }
-async function put(data) {
+async function putRequest(data) {
     return new Promise((resolve, reject) => {
         window.enmity.rest.put(data).then((response) => {
             resolve(response);
@@ -25,7 +25,7 @@ async function put(data) {
         });
     });
 }
-async function patch(data) {
+async function patchRequest(data) {
     return new Promise((resolve, reject) => {
         window.enmity.rest.patch(data).then((response) => {
             resolve(response);
@@ -34,7 +34,7 @@ async function patch(data) {
         });
     });
 }
-async function _delete(data) {
+async function deleteRequest(data) {
     return new Promise((resolve, reject) => {
         window.enmity.rest.delete(data).then((response) => {
             resolve(response);
@@ -43,7 +43,7 @@ async function _delete(data) {
         });
     });
 }
-async function getAPIBaseURL() {
+export async function getAPIBaseURL() {
     return window.enmity.rest.getAPIBaseURL();
 }
-export { get, post, put, patch, _delete as delete, getAPIBaseURL };
+export { getRequest as get, postRequest as post, putRequest as put, patchRequest as patch, deleteRequest as delete, };

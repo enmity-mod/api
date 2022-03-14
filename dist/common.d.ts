@@ -1,4 +1,4 @@
-interface Channel {
+export interface Channel {
     id: string;
     guild_id: string;
     type: number;
@@ -30,21 +30,21 @@ interface Channel {
     member?: any;
     threadMetadata?: any;
 }
-interface Permission {
+export interface Permission {
     parts: number[];
     str: string;
 }
-interface ChannelPermission {
+export interface ChannelPermission {
     id: string;
     type: number;
     allow: Permission;
     deny: Permission;
 }
-interface Message {
+export interface Message {
     guild: Guild;
     channel: Channel;
 }
-interface Guild {
+export interface Guild {
     id: string;
     name: string;
     description?: string;
@@ -79,7 +79,7 @@ interface Guild {
     applicationCommandCounts: number;
     hubType: number;
 }
-interface Role {
+export interface Role {
     id: string;
     name: string;
     permissions: Permission;
@@ -94,7 +94,7 @@ interface Role {
     icon?: string;
     unicodeEmoji?: string;
 }
-interface User {
+export interface User {
     id: string;
     discriminator: string;
     username: string;
@@ -118,17 +118,16 @@ interface User {
     nsfwAllowed?: boolean;
     guildMemberAvatars?: unknown;
 }
-interface Account {
+export interface Account {
     type: string;
     id: string;
     name: string;
     verified: boolean;
 }
-interface Profile {
+export interface Profile {
     user: User;
     connected_accounts: Account[];
     premium_since: string;
     premium_guild_since: string;
     mutual_guilds: Guild[];
 }
-export { Message, Channel, Permission, ChannelPermission, Guild, Role, User, Account, Profile };
