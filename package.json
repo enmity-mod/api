@@ -30,6 +30,10 @@
       "types": "./dist/commands.d.ts",
       "import": "./dist/commands.js"
     },
+    "./common": {
+      "types": "./dist/common.d.ts",
+      "import": "./dist/common.js"
+    },
     "./dialog": {
       "types": "./dist/dialog.d.ts",
       "import": "./dist/dialog.js"
@@ -85,6 +89,9 @@
       ],
       "commands": [
         "./dist/commands.d.ts"
+      ],
+      "common": [
+        "./dist/common.d.ts"
       ],
       "dialog": [
         "./dist/dialog.d.ts"
