@@ -52,11 +52,14 @@ export interface RestResponse {
  */
 async function getRequest(data: RestOptions | string): Promise<RestResponse> {
   return new Promise((resolve, reject) => {
-    window.enmity.rest.get(data).then((response: RestResponse) => {
-      resolve(response);
-    }).catch((err: any) => {
-      reject(err);
-    });
+    window.enmity.rest
+      .get(data)
+      .then((response: RestResponse) => {
+        resolve(response);
+      })
+      .catch((err: any) => {
+        reject(err);
+      });
   });
 }
 
@@ -67,11 +70,14 @@ async function getRequest(data: RestOptions | string): Promise<RestResponse> {
  */
 async function postRequest(data: RestOptions | string): Promise<RestResponse> {
   return new Promise((resolve, reject) => {
-    window.enmity.rest.post(data).then((response: RestResponse) => {
-      resolve(response);
-    }).catch((err: any) => {
-      reject(err);
-    });
+    window.enmity.rest
+      .post(data)
+      .then((response: RestResponse) => {
+        resolve(response);
+      })
+      .catch((err: any) => {
+        reject(err);
+      });
   });
 }
 
@@ -82,11 +88,14 @@ async function postRequest(data: RestOptions | string): Promise<RestResponse> {
  */
 async function putRequest(data: RestOptions | string): Promise<RestResponse> {
   return new Promise((resolve, reject) => {
-    window.enmity.rest.put(data).then((response: RestResponse) => {
-      resolve(response);
-    }).catch((err: any) => {
-      reject(err);
-    });
+    window.enmity.rest
+      .put(data)
+      .then((response: RestResponse) => {
+        resolve(response);
+      })
+      .catch((err: any) => {
+        reject(err);
+      });
   });
 }
 
@@ -97,11 +106,14 @@ async function putRequest(data: RestOptions | string): Promise<RestResponse> {
  */
 async function patchRequest(data: RestOptions | string): Promise<RestResponse> {
   return new Promise((resolve, reject) => {
-    window.enmity.rest.patch(data).then((response: RestResponse) => {
-      resolve(response);
-    }).catch((err: any) => {
-      reject(err);
-    });
+    window.enmity.rest
+      .patch(data)
+      .then((response: RestResponse) => {
+        resolve(response);
+      })
+      .catch((err: any) => {
+        reject(err);
+      });
   });
 }
 
@@ -112,11 +124,14 @@ async function patchRequest(data: RestOptions | string): Promise<RestResponse> {
  */
 async function deleteRequest(data: RestOptions | string): Promise<RestResponse> {
   return new Promise((resolve, reject) => {
-    window.enmity.rest.delete(data).then((response: RestResponse) => {
-      resolve(response);
-    }).catch((err: any) => {
-      reject(err);
-    });
+    window.enmity.rest
+      .delete(data)
+      .then((response: RestResponse) => {
+        resolve(response);
+      })
+      .catch((err: any) => {
+        reject(err);
+      });
   });
 }
 

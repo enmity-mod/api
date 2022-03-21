@@ -5,11 +5,14 @@
  */
 export async function getItem(name: string): Promise<string | null> {
   return new Promise((resolve, reject) => {
-    window.enmity.storage.getItem(name).then((data: string | null) => {
-      resolve(data);
-    }).catch((err: any) => {
-      reject(err);
-    });
+    window.enmity.storage
+      .getItem(name)
+      .then((data: string | null) => {
+        resolve(data);
+      })
+      .catch((err: any) => {
+        reject(err);
+      });
   });
 }
 
@@ -21,11 +24,14 @@ export async function getItem(name: string): Promise<string | null> {
  */
 export async function setItem(name: string, value: string): Promise<string | null> {
   return new Promise((resolve, reject) => {
-    window.enmity.storage.setItem(name, value).then((data: string | null) => {
-      resolve(data);
-    }).catch((err: any) => {
-      reject(err);
-    });
+    window.enmity.storage
+      .setItem(name, value)
+      .then((data: string | null) => {
+        resolve(data);
+      })
+      .catch((err: any) => {
+        reject(err);
+      });
   });
 }
 
@@ -36,10 +42,13 @@ export async function setItem(name: string, value: string): Promise<string | nul
  */
 export async function removeItem(name: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    window.enmity.storage.removeItem(name).then(() => {
-      resolve();
-    }).catch((err: any) => {
-      reject(err);
-    });
+    window.enmity.storage
+      .removeItem(name)
+      .then(() => {
+        resolve();
+      })
+      .catch((err: any) => {
+        reject(err);
+      });
   });
 }
