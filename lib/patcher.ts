@@ -67,7 +67,7 @@ export interface Patch extends Patchable {
    * @param id Name of the caller
    * @returns {Patcher[]} Lists of patcher
    */
-  getPatchesByCaller: (id: string) => Patcher[],
+  getPatchesByCaller: (id: string) => Patcher[];
 
   /**
    * Apply a before patch.

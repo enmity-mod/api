@@ -6,9 +6,12 @@ import { Profile, User } from './common';
  */
 export async function fetchCurrentUser(): Promise<User> {
   return new Promise((resolve, reject) => {
-    window.enmity.users.fetchCurrentUser().then((user: any) => {
-      resolve(user);
-    }).catch(reject);
+    window.enmity.users
+      .fetchCurrentUser()
+      .then((user: User) => {
+        resolve(user);
+      })
+      .catch(reject);
   });
 }
 
@@ -19,9 +22,12 @@ export async function fetchCurrentUser(): Promise<User> {
  */
 export async function fetchProfile(userID: string): Promise<Profile> {
   return new Promise((resolve, reject) => {
-    window.enmity.users.fetchProfile(userID).then((user: any) => {
-      resolve(user);
-    }).catch(reject);
+    window.enmity.users
+      .fetchProfile(userID)
+      .then((user: Profile) => {
+        resolve(user);
+      })
+      .catch(reject);
   });
 }
 
@@ -32,8 +38,11 @@ export async function fetchProfile(userID: string): Promise<Profile> {
  */
 export async function getUser(userID: string): Promise<User> {
   return new Promise((resolve, reject) => {
-    window.enmity.users.getUser(userID).then((user: any) => {
-      resolve(user);
-    }).catch(reject);
+    window.enmity.users
+      .getUser(userID)
+      .then((user: User) => {
+        resolve(user);
+      })
+      .catch(reject);
   });
 }

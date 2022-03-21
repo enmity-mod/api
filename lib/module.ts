@@ -65,7 +65,7 @@ declare global {
  */
 export interface Module {
   id: string;
-  exports: ModuleExports
+  exports: ModuleExports;
 }
 
 /**

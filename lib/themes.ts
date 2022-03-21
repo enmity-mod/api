@@ -1,6 +1,6 @@
 /**
  * Represents a Theme.
-*/
+ */
 export interface Theme {
   /**
    * Name of the theme.
