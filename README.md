@@ -8,7 +8,7 @@
    <h3>Enmity API</h3>
 
    API wrapper for Enmity.<br />
-   Documentation is available on [dosc.enmity.app](https://docs.enmity.app).
+   Documentation is available on [docs.enmity.app](https://docs.enmity.app).
 </div>
 
 ---
