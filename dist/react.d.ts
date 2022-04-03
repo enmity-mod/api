@@ -1,4 +1,14 @@
 export declare const React: any;
+export declare const memo: any;
+export declare const useCallback: any;
+export declare const useContext: any;
+export declare const useEffect: any;
+export declare const useImperativeHandle: any;
+export declare const useMemo: any;
+export declare const useReducer: any;
+export declare const useRef: any;
+export declare const useState: any;
+export declare const Alert: any;
 export declare const Button: any;
 export declare const FlatList: any;
 export declare const Image: any;

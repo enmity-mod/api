@@ -1,5 +1,15 @@
 const react = window.enmity.react;
 export const React = react.React;
+export const memo = react.memo;
+export const useCallback = react.useCallback;
+export const useContext = react.useContext;
+export const useEffect = react.useEffect;
+export const useImperativeHandle = react.useImperativeHandle;
+export const useMemo = react.useMemo;
+export const useReducer = react.useReducer;
+export const useRef = react.useRef;
+export const useState = react.useState;
+export const Alert = react.Alert;
 export const Button = react.Button;
 export const FlatList = react.FlatList;
 export const Image = react.Image;
