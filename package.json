@@ -5,7 +5,7 @@
   "license": "GPL-3.0",
   "scripts": {
     "build": "tsc",
-    "docs": "typedoc --entryPointStrategy expand ./lib"
+    "docs": "typedoc --readme none --entryPointStrategy expand ./lib"
   },
   "repository": {
     "type": "git",
