@@ -22,6 +22,10 @@
     "typescript": "^4.5.4"
   },
   "exports": {
+    "./clipboard": {
+      "types": "./dist/clipboard.d.ts",
+      "import": "./dist/clipboard.js"
+    },
     "./clyde": {
       "types": "./dist/clyde.d.ts",
       "import": "./dist/clyde.js"
@@ -54,9 +58,17 @@
       "types": "./dist/plugins.d.ts",
       "import": "./dist/plugins.js"
     },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js"
+    },
     "./rest": {
       "types": "./dist/rest.d.ts",
       "import": "./dist/rest.js"
+    },
+    "./settings": {
+      "types": "./dist/settings.d.ts",
+      "import": "./dist/settings.js"
     },
     "./storage": {
       "types": "./dist/storage.d.ts",
@@ -84,6 +96,9 @@
       "*": [
         "./dist/index.d.ts"
       ],
+      "clipboard": [
+        "./dist/clipboard.d.ts"
+      ],
       "clyde": [
         "./dist/clyde.d.ts"
       ],
@@ -108,8 +123,14 @@
       "plugins": [
         "./dist/plugins.d.ts"
       ],
+      "react": [
+        "./dist/react.d.ts"
+      ],
       "rest": [
         "./dist/rest.d.ts"
+      ],
+      "settings": [
+        "./dist/settings.d.ts"
       ],
       "storage": [
         "./dist/storage.d.ts"
