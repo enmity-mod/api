@@ -1,7 +1,7 @@
 {
   "name": "enmity-api",
   "description": "Api wrapper for Enmity.",
-  "version": "1.0.0",
+  "version": "1.0.8",
   "license": "GPL-3.0",
   "scripts": {
     "build": "tsc",
@@ -42,9 +42,9 @@
       "types": "./dist/dialog.d.ts",
       "import": "./dist/dialog.js"
     },
-    "./module": {
-      "types": "./dist/module.d.ts",
-      "import": "./dist/module.js"
+    "./modules": {
+      "types": "./dist/modules.d.ts",
+      "import": "./dist/modules.js"
     },
     "./native": {
       "types": "./dist/native.d.ts",
@@ -73,10 +73,6 @@
     "./storage": {
       "types": "./dist/storage.d.ts",
       "import": "./dist/storage.js"
-    },
-    "./themes": {
-      "types": "./dist/themes.d.ts",
-      "import": "./dist/themes.js"
     },
     "./toast": {
       "types": "./dist/toast.d.ts",
@@ -111,8 +107,8 @@
       "dialog": [
         "./dist/dialog.d.ts"
       ],
-      "module": [
-        "./dist/module.d.ts"
+      "modules": [
+        "./dist/modules.d.ts"
       ],
       "native": [
         "./dist/native.d.ts"
@@ -134,9 +130,6 @@
       ],
       "storage": [
         "./dist/storage.d.ts"
-      ],
-      "themes": [
-        "./dist/themes.d.ts"
       ],
       "toast": [
         "./dist/toast.d.ts"
