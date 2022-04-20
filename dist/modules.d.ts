@@ -21,12 +21,12 @@ interface KeywordOptions extends DefaultOptions {
 }
 declare type SearchFilter = (module: Module) => boolean;
 export declare const filters: {
-    byProps: (...mdls: string[]) => void;
-    byName: (name: string) => void;
-    byTypeName: (name: string) => void;
-    byTypeString: (...strings: string[]) => void;
-    byDefaultString: (...strings: string[]) => void;
-    byString: (...strings: string[]) => void;
+    byProps: (...mdls: string[]) => SearchFilter;
+    byName: (name: string) => SearchFilter;
+    byTypeName: (name: string) => SearchFilter;
+    byTypeString: (...strings: string[]) => SearchFilter;
+    byDefaultString: (...strings: string[]) => SearchFilter;
+    byString: (...strings: string[]) => SearchFilter;
 };
 export declare function getModule(filter: SearchFilter, options?: DefaultOptions): Module;
 export declare function getModules(filter: SearchFilter): Module;
