@@ -43,12 +43,12 @@ interface KeywordOptions extends DefaultOptions {
 type SearchFilter = (module: Module) => boolean;
 
 export const filters = {
-  byProps: (...mdls: string[]): SearchFilter => window.enmity.filters.byProps(...mdls),
-  byName: (name: string): SearchFilter => window.enmity.filters.byName(name),
-  byTypeName: (name: string): SearchFilter => window.enmity.filters.byTypeName(name),
-  byTypeString: (...strings: string[]): SearchFilter => window.enmity.filters.byTypeString(...strings),
-  byDefaultString: (...strings: string[]): SearchFilter => window.enmity.filters.byDefaultString(...strings),
-  byString: (...strings: string[]): SearchFilter => window.enmity.filters.byString(...strings),
+  byProps: (...mdls: string[]): SearchFilter => window.enmity.modules.filters.byProps(...mdls),
+  byName: (name: string): SearchFilter => window.enmity.modules.filters.byName(name),
+  byTypeName: (name: string): SearchFilter => window.enmity.modules.filters.byTypeName(name),
+  byTypeString: (...strings: string[]): SearchFilter => window.enmity.modules.filters.byTypeString(...strings),
+  byDefaultString: (...strings: string[]): SearchFilter => window.enmity.modules.filters.byDefaultString(...strings),
+  byString: (...strings: string[]): SearchFilter => window.enmity.modules.filters.byString(...strings),
 };
 
 export function getModule(filter: SearchFilter, options?: DefaultOptions): Module {
