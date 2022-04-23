@@ -1,10 +1,10 @@
 export const filters = {
-    byProps: (...mdls) => window.enmity.filters.byProps(...mdls),
-    byName: (name) => window.enmity.filters.byName(name),
-    byTypeName: (name) => window.enmity.filters.byTypeName(name),
-    byTypeString: (...strings) => window.enmity.filters.byTypeString(...strings),
-    byDefaultString: (...strings) => window.enmity.filters.byDefaultString(...strings),
-    byString: (...strings) => window.enmity.filters.byString(...strings),
+    byProps: (...mdls) => window.enmity.modules.filters.byProps(...mdls),
+    byName: (name) => window.enmity.modules.filters.byName(name),
+    byTypeName: (name) => window.enmity.modules.filters.byTypeName(name),
+    byTypeString: (...strings) => window.enmity.modules.filters.byTypeString(...strings),
+    byDefaultString: (...strings) => window.enmity.modules.filters.byDefaultString(...strings),
+    byString: (...strings) => window.enmity.modules.filters.byString(...strings),
 };
 export function getModule(filter, options) {
     return window.enmity.modules.getModule(filter, options);
