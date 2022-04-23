@@ -9,9 +9,15 @@ export interface RestOptions {
 
   /**
    * Body of the request.
+   * Can be either a string or an object.
+   */
+  body?: string | Record<string, any>;
+
+  /**
+   * Headers for the request.
    * Must be an object.
    */
-  body?: Record<string, any>;
+  headers?: Record<string, string>;
 }
 
 /**
