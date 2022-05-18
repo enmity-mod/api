@@ -1,6 +1,18 @@
 import { Command } from './commands';
 import { Patchable } from './patcher';
 
+export interface Author {
+  /**
+   * Name of the author.
+   */
+  name: string;
+
+  /**
+   * User ID of the author.
+   */
+  id?: string;
+}
+
 /**
  * Represents a plugin.
  */
@@ -9,6 +21,26 @@ export interface Plugin {
    * Name of the plugin.
    */
   name: string;
+
+  /**
+   * Description of the plugin.
+   */
+  description?: string;
+
+  /**
+   * Color of the plugin in settings.
+   */
+  color?: string;
+
+  /**
+   * Version of the plugin.
+   */
+  version?: string;
+
+  /**
+   * Authors of the plugin.
+   */
+  authors?: Author[] | string[];
 
   /**
    * List of commands of the plugin.
