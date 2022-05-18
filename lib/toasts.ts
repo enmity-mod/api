@@ -18,5 +18,5 @@ export interface ToastMessage {
  * @param {ToastMessage} message Message to show
  */
 export function showToast(message: ToastMessage): void {
-  window.enmity.toast.showToast(message);
+  (window.enmity.toasts ?? window.enmity.toast).showToast(message);
 }
