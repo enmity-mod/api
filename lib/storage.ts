@@ -4,16 +4,7 @@
  * @returns {string | null}
  */
 export async function getItem(name: string): Promise<string | null> {
-  return new Promise((resolve, reject) => {
-    window.enmity.storage
-      .getItem(name)
-      .then((data: string | null) => {
-        resolve(data);
-      })
-      .catch((err: any) => {
-        reject(err);
-      });
-  });
+  return await window.enmity.storage.getitem(name);
 }
 
 /**
@@ -23,16 +14,7 @@ export async function getItem(name: string): Promise<string | null> {
  * @returns {string | null}
  */
 export async function setItem(name: string, value: string): Promise<string | null> {
-  return new Promise((resolve, reject) => {
-    window.enmity.storage
-      .setItem(name, value)
-      .then((data: string | null) => {
-        resolve(data);
-      })
-      .catch((err: any) => {
-        reject(err);
-      });
-  });
+  return await window.enmity.storage.setitem(name, value);
 }
 
 /**
@@ -41,14 +23,5 @@ export async function setItem(name: string, value: string): Promise<string | nul
  * @returns {void}
  */
 export async function removeItem(name: string): Promise<void> {
-  return new Promise((resolve, reject) => {
-    window.enmity.storage
-      .removeItem(name)
-      .then(() => {
-        resolve();
-      })
-      .catch((err: any) => {
-        reject(err);
-      });
-  });
+  await window.enmity.storage.removeItem(name);
 }
