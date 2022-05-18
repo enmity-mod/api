@@ -51,16 +51,7 @@ export interface RestResponse {
  * @returns {Promise<RestResponse>} Request's response
  */
 async function getRequest(data: RestOptions | string): Promise<RestResponse> {
-  return new Promise((resolve, reject) => {
-    window.enmity.rest
-      .get(data)
-      .then((response: RestResponse) => {
-        resolve(response);
-      })
-      .catch((err: any) => {
-        reject(err);
-      });
-  });
+  return await window.enmity.rest.get(data);
 }
 
 /**
@@ -69,16 +60,7 @@ async function getRequest(data: RestOptions | string): Promise<RestResponse> {
  * @returns {Promise<RestResponse>} Request's response
  */
 async function postRequest(data: RestOptions | string): Promise<RestResponse> {
-  return new Promise((resolve, reject) => {
-    window.enmity.rest
-      .post(data)
-      .then((response: RestResponse) => {
-        resolve(response);
-      })
-      .catch((err: any) => {
-        reject(err);
-      });
-  });
+  return await window.enmity.rest.post(data);
 }
 
 /**
@@ -87,16 +69,7 @@ async function postRequest(data: RestOptions | string): Promise<RestResponse> {
  * @returns {Promise<RestResponse>} Request's response
  */
 async function putRequest(data: RestOptions | string): Promise<RestResponse> {
-  return new Promise((resolve, reject) => {
-    window.enmity.rest
-      .put(data)
-      .then((response: RestResponse) => {
-        resolve(response);
-      })
-      .catch((err: any) => {
-        reject(err);
-      });
-  });
+  return await window.enmity.rest.put(data);
 }
 
 /**
@@ -105,16 +78,7 @@ async function putRequest(data: RestOptions | string): Promise<RestResponse> {
  * @returns {Promise<RestResponse>} Request's response
  */
 async function patchRequest(data: RestOptions | string): Promise<RestResponse> {
-  return new Promise((resolve, reject) => {
-    window.enmity.rest
-      .patch(data)
-      .then((response: RestResponse) => {
-        resolve(response);
-      })
-      .catch((err: any) => {
-        reject(err);
-      });
-  });
+  return await window.enmity.rest.patch(data);
 }
 
 /**
@@ -123,23 +87,14 @@ async function patchRequest(data: RestOptions | string): Promise<RestResponse> {
  * @returns {Promise<RestResponse>} Request's response
  */
 async function deleteRequest(data: RestOptions | string): Promise<RestResponse> {
-  return new Promise((resolve, reject) => {
-    window.enmity.rest
-      .delete(data)
-      .then((response: RestResponse) => {
-        resolve(response);
-      })
-      .catch((err: any) => {
-        reject(err);
-      });
-  });
+  return await window.enmity.rest.delete(data);
 }
 
 /**
  * Get the base URL for Discord's API
  * @returns {Promise<string>}
  */
-export async function getAPIBaseURL(): Promise<string> {
+export function getAPIBaseURL(): string {
   return window.enmity.rest.getAPIBaseURL();
 }
 
