@@ -74,21 +74,21 @@ export interface Patch extends Patchable {
    *
    * Patch will be executed before the original function is called.
    */
-  before: (mdl: Mdl, func: string, callback: PatchCallback) => Patchable;
+  before: (mdl: Mdl, func: string, callback: PatchCallback) => () => void;
 
   /**
    * Apply an instead patch.
    *
    * Patch will replace the original function call.
    */
-  instead: (mdl: Mdl, func: string, callback: PatchCallback) => Patchable;
+  instead: (mdl: Mdl, func: string, callback: PatchCallback) => () => void;
 
   /**
    * Apply an after patch.
    *
    * Patch will be executed after the original function has been called.
    */
-  after: (mdl: Mdl, func: string, callback: PatchCallback) => Patchable;
+  after: (mdl: Mdl, func: string, callback: PatchCallback) => () => void;
 }
 
 /**
@@ -109,11 +109,8 @@ export function before(
   mdl: Mdl,
   func: string,
   callback: PatchCallback,
-): Patchable {
-  const unpatch = window.enmity.patcher.before(caller, mdl, func, callback);
-  return {
-    unpatchAll: unpatch,
-  };
+): () => void {
+  return window.enmity.patcher.before(caller, mdl, func, callback);
 }
 
 /**
@@ -126,11 +123,8 @@ export function instead(
   mdl: Mdl,
   func: string,
   callback: PatchCallback,
-): Patchable {
-  const unpatch = window.enmity.patcher.instead(caller, mdl, func, callback);
-  return {
-    unpatchAll: unpatch,
-  };
+): () => void {
+  return window.enmity.patcher.instead(caller, mdl, func, callback);
 }
 
 /**
@@ -143,9 +137,6 @@ export function after(
   mdl: Mdl,
   func: string,
   callback: PatchCallback,
-): Patchable {
-  const unpatch = window.enmity.patcher.after(caller, mdl, func, callback);
-  return {
-    unpatchAll: unpatch,
-  };
+): () => void {
+  return window.enmity.patcher.after(caller, mdl, func, callback);
 }
