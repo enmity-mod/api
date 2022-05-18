@@ -46,9 +46,7 @@ export const filters = {
   byProps: (...mdls: string[]): SearchFilter => window.enmity.modules.filters.byProps(...mdls),
   byName: (name: string): SearchFilter => window.enmity.modules.filters.byName(name),
   byTypeName: (name: string): SearchFilter => window.enmity.modules.filters.byTypeName(name),
-  byTypeString: (...strings: string[]): SearchFilter => window.enmity.modules.filters.byTypeString(...strings),
-  byDefaultString: (...strings: string[]): SearchFilter => window.enmity.modules.filters.byDefaultString(...strings),
-  byString: (...strings: string[]): SearchFilter => window.enmity.modules.filters.byString(...strings),
+  byDisplayName: (name: string): SearchFilter => window.enmity.modules.filters.byDisplayName(name)
 };
 
 export function getModule(filter: SearchFilter, options?: DefaultOptions): Module {
@@ -77,18 +75,6 @@ export function getByTypeName(...options: [displayName: string, options?: Displa
 
 export function getByName(...options: [displayName: string, options?: DisplayNameOptions & ConditionalBulk] | string[]): Module {
   return window.enmity.modules.getByName(...options);
-}
-
-export function getByDefaultString(...options: [...strings: string[], options: DisplayNameOptions & ConditionalBulk] | string[]): Module {
-  return window.enmity.modules.getByDefaultString(...options);
-}
-
-export function getByTypeString(...options: [...strings: string[], options: DisplayNameOptions & ConditionalBulk] | string[]): Module {
-  return window.enmity.modules.getByTypeString(...options);
-}
-
-export function getByString(...options: [...strings: string[], options: DisplayNameOptions & ConditionalBulk] | string[]): Module {
-  return window.enmity.modules.getByString(...options);
 }
 
 export function getByKeyword(...options: [keyword: string, options?: DisplayNameOptions & KeywordOptions] | string[]): Module {
