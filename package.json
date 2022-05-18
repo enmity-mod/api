@@ -74,9 +74,9 @@
       "types": "./dist/storage.d.ts",
       "import": "./dist/storage.js"
     },
-    "./toast": {
-      "types": "./dist/toast.d.ts",
-      "import": "./dist/toast.js"
+    "./toasts": {
+      "types": "./dist/toasts.d.ts",
+      "import": "./dist/toasts.js"
     },
     "./token": {
       "types": "./dist/token.d.ts",
@@ -131,8 +131,8 @@
       "storage": [
         "./dist/storage.d.ts"
       ],
-      "toast": [
-        "./dist/toast.d.ts"
+      "toasts": [
+        "./dist/toasts.d.ts"
       ],
       "token": [
         "./dist/token.d.ts"
