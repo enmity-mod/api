@@ -1,7 +1,15 @@
 import { Command } from './commands';
 import { Patchable } from './patcher';
+export interface Author {
+    name: string;
+    id?: string;
+}
 export interface Plugin {
     name: string;
+    description?: string;
+    color?: string;
+    version?: string;
+    authors?: Author[] | string[];
     commands?: Command[];
     patches?: Patchable[];
     onStart: () => void;

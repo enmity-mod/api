@@ -14,5 +14,5 @@ declare function postRequest(data: RestOptions | string): Promise<RestResponse>;
 declare function putRequest(data: RestOptions | string): Promise<RestResponse>;
 declare function patchRequest(data: RestOptions | string): Promise<RestResponse>;
 declare function deleteRequest(data: RestOptions | string): Promise<RestResponse>;
-export declare function getAPIBaseURL(): Promise<string>;
+export declare function getAPIBaseURL(): string;
 export { getRequest as get, postRequest as post, putRequest as put, patchRequest as patch, deleteRequest as delete, };

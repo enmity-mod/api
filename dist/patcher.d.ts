@@ -12,11 +12,11 @@ export interface Patcher {
 }
 export interface Patch extends Patchable {
     getPatchesByCaller: (id: string) => Patcher[];
-    before: (mdl: Mdl, func: string, callback: PatchCallback) => Patchable;
-    instead: (mdl: Mdl, func: string, callback: PatchCallback) => Patchable;
-    after: (mdl: Mdl, func: string, callback: PatchCallback) => Patchable;
+    before: (mdl: Mdl, func: string, callback: PatchCallback) => () => void;
+    instead: (mdl: Mdl, func: string, callback: PatchCallback) => () => void;
+    after: (mdl: Mdl, func: string, callback: PatchCallback) => () => void;
 }
 export declare function create(name: string): Patch;
-export declare function before(caller: string, mdl: Mdl, func: string, callback: PatchCallback): Patchable;
-export declare function instead(caller: string, mdl: Mdl, func: string, callback: PatchCallback): Patchable;
-export declare function after(caller: string, mdl: Mdl, func: string, callback: PatchCallback): Patchable;
+export declare function before(caller: string, mdl: Mdl, func: string, callback: PatchCallback): () => void;
+export declare function instead(caller: string, mdl: Mdl, func: string, callback: PatchCallback): () => void;
+export declare function after(caller: string, mdl: Mdl, func: string, callback: PatchCallback): () => void;

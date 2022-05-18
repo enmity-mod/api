@@ -24,20 +24,15 @@ export declare const filters: {
     byProps: (...mdls: string[]) => SearchFilter;
     byName: (name: string) => SearchFilter;
     byTypeName: (name: string) => SearchFilter;
-    byTypeString: (...strings: string[]) => SearchFilter;
-    byDefaultString: (...strings: string[]) => SearchFilter;
-    byString: (...strings: string[]) => SearchFilter;
+    byDisplayName: (name: string) => SearchFilter;
 };
 export declare function getModule(filter: SearchFilter, options?: DefaultOptions): Module;
 export declare function getModules(filter: SearchFilter): Module;
-export declare function bulk(...filter: SearchFilter[]): Module;
+export declare function bulk(...filter: SearchFilter[]): Module[];
 export declare function getByProps(...options: [...props: string[], options: ConditionalBulk] | string[]): Module;
 export declare function getByDisplayName(...options: [displayName: string, options?: DisplayNameOptions & ConditionalBulk] | string[]): Module;
 export declare function getByTypeName(...options: [displayName: string, options?: DisplayNameOptions & ConditionalBulk] | string[]): Module;
 export declare function getByName(...options: [displayName: string, options?: DisplayNameOptions & ConditionalBulk] | string[]): Module;
-export declare function getByDefaultString(...options: [...strings: string[], options: DisplayNameOptions & ConditionalBulk] | string[]): Module;
-export declare function getByTypeString(...options: [...strings: string[], options: DisplayNameOptions & ConditionalBulk] | string[]): Module;
-export declare function getByString(...options: [...strings: string[], options: DisplayNameOptions & ConditionalBulk] | string[]): Module;
 export declare function getByKeyword(...options: [keyword: string, options?: DisplayNameOptions & KeywordOptions] | string[]): Module;
 declare global {
     interface Window {

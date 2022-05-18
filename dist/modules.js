@@ -2,9 +2,7 @@ export const filters = {
     byProps: (...mdls) => window.enmity.modules.filters.byProps(...mdls),
     byName: (name) => window.enmity.modules.filters.byName(name),
     byTypeName: (name) => window.enmity.modules.filters.byTypeName(name),
-    byTypeString: (...strings) => window.enmity.modules.filters.byTypeString(...strings),
-    byDefaultString: (...strings) => window.enmity.modules.filters.byDefaultString(...strings),
-    byString: (...strings) => window.enmity.modules.filters.byString(...strings),
+    byDisplayName: (name) => window.enmity.modules.filters.byDisplayName(name)
 };
 export function getModule(filter, options) {
     return window.enmity.modules.getModule(filter, options);
@@ -26,15 +24,6 @@ export function getByTypeName(...options) {
 }
 export function getByName(...options) {
     return window.enmity.modules.getByName(...options);
-}
-export function getByDefaultString(...options) {
-    return window.enmity.modules.getByDefaultString(...options);
-}
-export function getByTypeString(...options) {
-    return window.enmity.modules.getByTypeString(...options);
-}
-export function getByString(...options) {
-    return window.enmity.modules.getByString(...options);
 }
 export function getByKeyword(...options) {
     return window.enmity.modules.getByKeyword(...options);
