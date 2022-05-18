@@ -1,3 +1,5 @@
+const toasts = window.enmity.toasts ?? window.enmity.toast;
+
 /**
  * Define a Toast Message.
  */
@@ -18,5 +20,5 @@ export interface ToastMessage {
  * @param {ToastMessage} message Message to show
  */
 export function showToast(message: ToastMessage): void {
-  (window.enmity.toasts ?? window.enmity.toast).showToast(message);
+  toasts.showToast(message);
 }
