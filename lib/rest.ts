@@ -92,7 +92,7 @@ async function deleteRequest(data: RestOptions | string): Promise<RestResponse> 
 
 /**
  * Get the base URL for Discord's API
- * @returns {Promise<string>}
+ * @returns {string}
  */
 export function getAPIBaseURL(): string {
   return window.enmity.rest.getAPIBaseURL();
