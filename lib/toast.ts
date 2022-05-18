@@ -10,7 +10,7 @@ export interface ToastMessage {
   /**
    * ID of the asset used for the toast.
    */
-  source: number;
+  source?: number;
 }
 
 /**
