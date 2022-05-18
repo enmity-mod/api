@@ -59,7 +59,7 @@ export function getModules(filter: SearchFilter): Module {
   return window.enmity.modules.getModules(filter);
 }
 
-export function bulk(...filter: SearchFilter[]): Module {
+export function bulk(...filter: SearchFilter[]): Module[] {
   return window.enmity.modules.bulk(...filter);
 }
 
