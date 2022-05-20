@@ -22,6 +22,10 @@
     "typescript": "^4.5.4"
   },
   "exports": {
+    "./assets": {
+      "types": "./dist/assets.d.ts",
+      "import": "./dist/assets.js"
+    },
     "./clipboard": {
       "types": "./dist/clipboard.d.ts",
       "import": "./dist/clipboard.js"
