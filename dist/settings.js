@@ -1,5 +1,5 @@
 export function set(file, setting, value) {
-    return window.enmity.settings.set(file, setting, value);
+    window.enmity.settings.set(file, setting, value);
 }
 export function get(file, setting, defaults) {
     return window.enmity.settings.get(file, setting, defaults);
@@ -8,7 +8,7 @@ export function getBoolean(file, setting, defaults) {
     return window.enmity.settings.getBoolean(file, setting, defaults);
 }
 export function toggle(file, setting, defaults) {
-    return window.enmity.settings.toggle(file, setting, defaults);
+    window.enmity.settings.toggle(file, setting, defaults);
 }
 export function connectComponent(component, file) {
     return window.enmity.settings.connectComponent(component, file);
