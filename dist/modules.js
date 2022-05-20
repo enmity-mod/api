@@ -2,7 +2,7 @@ export const filters = {
     byProps: (...mdls) => window.enmity.modules.filters.byProps(...mdls),
     byName: (name) => window.enmity.modules.filters.byName(name),
     byTypeName: (name) => window.enmity.modules.filters.byTypeName(name),
-    byDisplayName: (name) => window.enmity.modules.filters.byDisplayName(name)
+    byDisplayName: (name) => window.enmity.modules.filters.byDisplayName(name),
 };
 export function getModule(filter, options) {
     return window.enmity.modules.getModule(filter, options);
