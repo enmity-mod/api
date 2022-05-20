@@ -6,7 +6,7 @@ interface SettingsCallbackArgs {
    * Key of the setting.
    */
   setting: string;
-  
+
   /**
    * Value of the setting.
    */
@@ -96,7 +96,7 @@ export function toggle(file: string, setting: string, defaults?: boolean): void 
 
 /**
  * Create a React component that includes a {@link SettingsStore} in its props for a category.
- * @param {Function | Object} component 
+ * @param {Function | Object} component
  * @param {string} file Settings category.
  * @returns {ReactComponent} React componnet that includes the {@link SettingsStore} in its props.
  */
@@ -132,7 +132,7 @@ export function unsubscribe(file: string, callback: SettingsCallback): void {
 }
 
 /**
- * 
+ *
  * @param {string} file Settings category.
  * @returns {Function}
  */

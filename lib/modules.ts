@@ -46,7 +46,7 @@ export const filters = {
   byProps: (...mdls: string[]): SearchFilter => window.enmity.modules.filters.byProps(...mdls),
   byName: (name: string): SearchFilter => window.enmity.modules.filters.byName(name),
   byTypeName: (name: string): SearchFilter => window.enmity.modules.filters.byTypeName(name),
-  byDisplayName: (name: string): SearchFilter => window.enmity.modules.filters.byDisplayName(name)
+  byDisplayName: (name: string): SearchFilter => window.enmity.modules.filters.byDisplayName(name),
 };
 
 export function getModule(filter: SearchFilter, options?: DefaultOptions): Module {
