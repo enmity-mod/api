@@ -26,10 +26,6 @@
       "types": "./dist/assets.d.ts",
       "import": "./dist/assets.js"
     },
-    "./clipboard": {
-      "types": "./dist/clipboard.d.ts",
-      "import": "./dist/clipboard.js"
-    },
     "./clyde": {
       "types": "./dist/clyde.d.ts",
       "import": "./dist/clyde.js"
@@ -41,10 +37,6 @@
     "./common": {
       "types": "./dist/common.d.ts",
       "import": "./dist/common.js"
-    },
-    "./dialog": {
-      "types": "./dist/dialog.d.ts",
-      "import": "./dist/dialog.js"
     },
     "./modules": {
       "types": "./dist/modules.d.ts",
@@ -62,33 +54,9 @@
       "types": "./dist/plugins.d.ts",
       "import": "./dist/plugins.js"
     },
-    "./react": {
-      "types": "./dist/react.d.ts",
-      "import": "./dist/react.js"
-    },
-    "./rest": {
-      "types": "./dist/rest.d.ts",
-      "import": "./dist/rest.js"
-    },
     "./settings": {
       "types": "./dist/settings.d.ts",
       "import": "./dist/settings.js"
-    },
-    "./storage": {
-      "types": "./dist/storage.d.ts",
-      "import": "./dist/storage.js"
-    },
-    "./toasts": {
-      "types": "./dist/toasts.d.ts",
-      "import": "./dist/toasts.js"
-    },
-    "./token": {
-      "types": "./dist/token.d.ts",
-      "import": "./dist/token.js"
-    },
-    "./users": {
-      "types": "./dist/users.d.ts",
-      "import": "./dist/users.js"
     }
   },
   "typesVersions": {
@@ -96,8 +64,8 @@
       "*": [
         "./dist/index.d.ts"
       ],
-      "clipboard": [
-        "./dist/clipboard.d.ts"
+      "assets": [
+        "./dist/assets.d.ts"
       ],
       "clyde": [
         "./dist/clyde.d.ts"
@@ -107,9 +75,6 @@
       ],
       "common": [
         "./dist/common.d.ts"
-      ],
-      "dialog": [
-        "./dist/dialog.d.ts"
       ],
       "modules": [
         "./dist/modules.d.ts"
@@ -123,26 +88,8 @@
       "plugins": [
         "./dist/plugins.d.ts"
       ],
-      "react": [
-        "./dist/react.d.ts"
-      ],
-      "rest": [
-        "./dist/rest.d.ts"
-      ],
       "settings": [
         "./dist/settings.d.ts"
-      ],
-      "storage": [
-        "./dist/storage.d.ts"
-      ],
-      "toasts": [
-        "./dist/toasts.d.ts"
-      ],
-      "token": [
-        "./dist/token.d.ts"
-      ],
-      "users": [
-        "./dist/users.d.ts"
       ]
     }
   }
