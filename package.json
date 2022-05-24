@@ -22,41 +22,49 @@
     "typescript": "^4.5.4"
   },
   "exports": {
-    "./assets": {
-      "types": "./dist/assets.d.ts",
-      "import": "./dist/assets.js"
+    "./api/assets": {
+      "types": "./dist/api/assets.d.ts",
+      "import": "./dist/api/assets.js"
     },
-    "./clyde": {
-      "types": "./dist/clyde.d.ts",
-      "import": "./dist/clyde.js"
+    "./api/clyde": {
+      "types": "./dist/api/clyde.d.ts",
+      "import": "./dist/api/clyde.js"
     },
-    "./commands": {
-      "types": "./dist/commands.d.ts",
-      "import": "./dist/commands.js"
+    "./api/commands": {
+      "types": "./dist/api/commands.d.ts",
+      "import": "./dist/api/commands.js"
+    },
+    "./api/native": {
+      "types": "./dist/api/native.d.ts",
+      "import": "./dist/api/native.js"
+    },
+    "./api/settings": {
+      "types": "./dist/api/settings.d.ts",
+      "import": "./dist/api/settings.js"
     },
     "./common": {
       "types": "./dist/common.d.ts",
       "import": "./dist/common.js"
     },
-    "./modules": {
-      "types": "./dist/modules.d.ts",
-      "import": "./dist/modules.js"
+    "./components": {
+      "types": "./dist/components.d.ts",
+      "import": "./dist/components.js"
     },
-    "./native": {
-      "types": "./dist/native.d.ts",
-      "import": "./dist/native.js"
+    "./managers/plugins": {
+      "types": "./dist/managers/plugins.d.ts",
+      "import": "./dist/managers/plugins.js"
+    },
+    "./managers/themes": {
+      "types": "./dist/managers/themes.d.ts",
+      "import": "./dist/managers/themes.js"
+    },
+    "./metro": {
+      "types": "./dist/metro.d.ts",
+      "import": "./dist/metro.js"
     },
     "./patcher": {
       "types": "./dist/patcher.d.ts",
       "import": "./dist/patcher.js"
-    },
-    "./plugins": {
-      "types": "./dist/plugins.d.ts",
-      "import": "./dist/plugins.js"
-    },
-    "./settings": {
-      "types": "./dist/settings.d.ts",
-      "import": "./dist/settings.js"
     }
   },
   "typesVersions": {
@@ -64,32 +72,38 @@
       "*": [
         "./dist/index.d.ts"
       ],
-      "assets": [
-        "./dist/assets.d.ts"
+      "api/assets": [
+        "./dist/api/assets.d.ts"
       ],
-      "clyde": [
-        "./dist/clyde.d.ts"
+      "api/clyde": [
+        "./dist/api/clyde.d.ts"
       ],
-      "commands": [
-        "./dist/commands.d.ts"
+      "api/commands": [
+        "./dist/api/commands.d.ts"
+      ],
+      "api/native": [
+        "./dist/api/native.d.ts"
+      ],
+      "api/settings": [
+        "./dist/api/settings.d.ts"
       ],
       "common": [
         "./dist/common.d.ts"
       ],
-      "modules": [
-        "./dist/modules.d.ts"
+      "components": [
+        "./dist/components.d.ts"
       ],
-      "native": [
-        "./dist/native.d.ts"
+      "managers/plugins": [
+        "./dist/managers/plugins.d.ts"
+      ],
+      "managers/themes": [
+        "./dist/managers/themes.d.ts"
+      ],
+      "metro": [
+        "./dist/metro.d.ts"
       ],
       "patcher": [
         "./dist/patcher.d.ts"
-      ],
-      "plugins": [
-        "./dist/plugins.d.ts"
-      ],
-      "settings": [
-        "./dist/settings.d.ts"
       ]
     }
   }

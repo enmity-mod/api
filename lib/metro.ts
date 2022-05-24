@@ -1,46 +1,44 @@
-interface Module {
-  [key: string]: any;
-}
+export type Module = Record<string, any>;
 
-interface DefaultOptions {
+export interface DefaultOptions {
   all?: boolean;
   cache?: boolean;
   force?: boolean;
   defaultExport?: boolean;
 }
 
-interface WaitForOptions {
+export interface WaitForOptions {
   retries?: number;
   all?: boolean;
   forever?: boolean;
   delay?: number;
 }
 
-interface ConditionalDefault extends DefaultOptions {
+export interface ConditionalDefault extends DefaultOptions {
   wait?: false;
 }
 
-interface ConditionalWaitFor extends WaitForOptions {
+export interface ConditionalWaitFor extends WaitForOptions {
   wait: true;
 }
 
-interface ConditionalBulk extends ConditionalDefault {
+export interface ConditionalBulk extends ConditionalDefault {
   bulk: true;
 }
 
-interface ConditionalWaitBulk extends ConditionalWaitFor {
+export interface ConditionalWaitBulk extends ConditionalWaitFor {
   bulk: true;
 }
 
-interface DisplayNameOptions {
+export interface DisplayNameOptions {
   default?: boolean;
 }
 
-interface KeywordOptions extends DefaultOptions {
+export interface KeywordOptions extends DefaultOptions {
   caseSensitive?: boolean;
 }
 
-type SearchFilter = (module: Module) => boolean;
+export type SearchFilter = (module: Module) => boolean;
 
 export const filters = {
   byProps: (...mdls: string[]): SearchFilter => window.enmity.modules.filters.byProps(...mdls),

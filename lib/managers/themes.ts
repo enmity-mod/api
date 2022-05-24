@@ -1,0 +1,43 @@
+import { Author } from "./common";
+
+export interface Theme {
+  /**
+   * Name of the theme.
+   */
+  name: string;
+
+  /**
+   * Description of the theme.
+   */
+  description?: string;
+
+  /**
+   * Color of the theme in settings.
+   */
+  color?: string;
+
+  /**
+   * Version of the theme.
+   */
+  version?: string;
+
+  /**
+   * Authors of the theme.
+   */
+  authors?: Author[] | string[];
+
+  /**
+   * Colors for text and most background elements. Each item must a color for dark mode and a color for light mode, in that order.
+   */
+  theme_color_map: Record<string, [string, string]>;
+
+  /**
+   * Colors used throughout Discord.
+   */
+  colours: Record<string, string>;
+
+  /**
+   * Unsafe colors, themes the grey bar under the keyboard (for now)
+   */
+  unsafe_colors?: Record<string, string>;
+}

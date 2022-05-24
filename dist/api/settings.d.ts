@@ -1,10 +1,10 @@
 declare type ReactElement = Object;
 declare type ReactComponent = (props: Record<string, any>) => ReactElement;
-interface SettingsCallbackArgs {
+export interface SettingsCallbackArgs {
     setting: string;
     value: any;
 }
-declare type SettingsCallback = (args: SettingsCallbackArgs) => void;
+export declare type SettingsCallback = (args: SettingsCallbackArgs) => void;
 export interface SettingsStore {
     settings: Record<string, any>;
     set: (key: string, value: any) => void;

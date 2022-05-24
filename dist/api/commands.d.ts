@@ -1,9 +1,9 @@
-import { Message } from './common';
-interface HasName {
+import { Message } from '../common';
+export interface HasName {
     name: string;
     displayName: string;
 }
-interface HasDescription {
+export interface HasDescription {
     description: string;
     displayDescription: string;
 }
@@ -75,4 +75,3 @@ export declare enum InteractionTypes {
 export declare const EnmitySectionID = "enmity";
 export declare function registerCommands(caller: string, commands: Command[]): void;
 export declare function unregisterCommands(caller: string): void;
-export {};

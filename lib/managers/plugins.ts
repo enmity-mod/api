@@ -1,17 +1,6 @@
-import { Command } from './commands';
-import { Patchable } from './patcher';
-
-export interface Author {
-  /**
-   * Name of the author.
-   */
-  name: string;
-
-  /**
-   * User ID of the author.
-   */
-  id?: string;
-}
+import { Command } from '../api/commands';
+import { Patchable } from '../patcher';
+import { Author } from './common';
 
 /**
  * Represents a plugin.

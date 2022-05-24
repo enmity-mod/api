@@ -1,7 +1,7 @@
 type ReactElement = Object;
 type ReactComponent = (props: Record<string, any>) => ReactElement;
 
-interface SettingsCallbackArgs {
+export interface SettingsCallbackArgs {
   /**
    * Key of the setting.
    */
@@ -13,7 +13,7 @@ interface SettingsCallbackArgs {
   value: any;
 }
 
-type SettingsCallback = (args: SettingsCallbackArgs) => void;
+export type SettingsCallback = (args: SettingsCallbackArgs) => void;
 
 export interface SettingsStore {
   /**

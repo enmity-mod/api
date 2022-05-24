@@ -1,25 +1,37 @@
-interface Module {
+export interface Module {
     [key: string]: any;
 }
-interface DefaultOptions {
+export interface DefaultOptions {
     all?: boolean;
     cache?: boolean;
     force?: boolean;
     defaultExport?: boolean;
 }
-interface ConditionalDefault extends DefaultOptions {
+export interface WaitForOptions {
+    retries?: number;
+    all?: boolean;
+    forever?: boolean;
+    delay?: number;
+}
+export interface ConditionalDefault extends DefaultOptions {
     wait?: false;
 }
-interface ConditionalBulk extends ConditionalDefault {
+export interface ConditionalWaitFor extends WaitForOptions {
+    wait: true;
+}
+export interface ConditionalBulk extends ConditionalDefault {
     bulk: true;
 }
-interface DisplayNameOptions {
+export interface ConditionalWaitBulk extends ConditionalWaitFor {
+    bulk: true;
+}
+export interface DisplayNameOptions {
     default?: boolean;
 }
-interface KeywordOptions extends DefaultOptions {
+export interface KeywordOptions extends DefaultOptions {
     caseSensitive?: boolean;
 }
-declare type SearchFilter = (module: Module) => boolean;
+export declare type SearchFilter = (module: Module) => boolean;
 export declare const filters: {
     byProps: (...mdls: string[]) => SearchFilter;
     byName: (name: string) => SearchFilter;
@@ -39,4 +51,3 @@ declare global {
         enmity: Record<string, any>;
     }
 }
-export {};

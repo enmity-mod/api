@@ -1,9 +1,9 @@
-import { Message } from './common';
+import { Message } from '../common';
 
 /**
  * Generic interface that implements name and displayName.
  */
-interface HasName {
+export interface HasName {
   /**
    * Internal name.
    */
@@ -19,7 +19,7 @@ interface HasName {
  * Generic interface that implements description and displayDescription.
  */
 
-interface HasDescription {
+export interface HasDescription {
   /**
    * Internal description.
    */

@@ -1,9 +1,6 @@
-import { Command } from './commands';
-import { Patchable } from './patcher';
-export interface Author {
-    name: string;
-    id?: string;
-}
+import { Command } from '../api/commands';
+import { Patchable } from '../patcher';
+import { Author } from './common';
 export interface Plugin {
     name: string;
     description?: string;
