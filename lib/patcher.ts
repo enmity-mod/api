@@ -7,48 +7,35 @@ export type Mdl = Function | object;
 
 /**
  * Callback for a patch.
- *
- * Self is a reference to this in the context of the patched function.
- *
- * Args is the list of arguments sent to the patched function.
- *
- * Res is a reference to the original function.
+ * @param {any} self A reference to `this` in the context of the patched function.
+ * @param {any[]} args The list of arguments sent to the patched function.
+ * @param {any} res A reference to the original function for before and instead patches, and the result of the original function for after patches.
  */
 export type PatchCallback = (self: any, args: any[], res: any) => void;
 
 /**
- * Interface that includes unpatchAll.
- */
-export interface Patchable {
-  /**
-   * Unpatch all the patches.
-   */
-  unpatchAll: () => void;
-}
-
-/**
- * Represents a patcher.
+ * Represents a patch.
  *
- * A patcher is used to patch function calls and such.
+ * A patch is used to modify function calls and such.
  */
-export interface Patcher {
+export interface Patch {
   /**
    * Name of the caller.
    */
   caller: string;
 
   /**
-   * Type of the patcher.
+   * Type of the patch (before/instead/after).
    */
   type: string;
 
   /**
-   * Internal ID of the patcher.
+   * Internal ID of the patch.
    */
   id: number;
 
   /**
-   * Callback of the patcher.
+   * Callback of the patch.
    */
   callback: PatchCallback;
 
@@ -59,15 +46,15 @@ export interface Patcher {
 }
 
 /**
- * Represents a patch.
+ * Represents a patcher.
  */
-export interface Patch extends Patchable {
+export interface Patcher {
   /**
-   * Get the list of patcher used by this patch.
+   * Get the list of patches used by this patcher.
    * @param id Name of the caller.
-   * @returns {Patcher[]} List of patchers.
+   * @returns {Patch[]} List of patches.
    */
-  getPatchesByCaller: (id: string) => Patcher[];
+  getPatchesByCaller: (id: string) => Patch[];
 
   /**
    * Apply a before patch.
@@ -89,13 +76,18 @@ export interface Patch extends Patchable {
    * Patch will be executed after the original function has been called.
    */
   after: (mdl: Mdl, func: string, callback: PatchCallback) => () => void;
+
+  /**
+   * Unpatch all the patches.
+   */
+  unpatchAll: () => void;
 }
 
 /**
- * Create a patch.
- * @see {@link Patch}
+ * Create a patcher.
+ * @see {@link Patcher}
  */
-export function create(name: string): Patch {
+export function create(name: string): Patcher {
   return window.enmity.patcher.create(name);
 }
 

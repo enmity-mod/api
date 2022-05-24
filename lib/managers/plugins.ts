@@ -1,5 +1,5 @@
 import { Command } from '../api/commands';
-import { Patchable } from '../patcher';
+import { Patcher } from '../patcher';
 import { Author } from './common';
 
 /**
@@ -37,9 +37,9 @@ export interface Plugin {
   commands?: Command[];
 
   /**
-   * List of patches of the plugin.
+   * List of patchers of the plugin.
    */
-  patches?: Patchable[];
+  patches?: Patcher[];
 
   /**
    * Executed when the plugin is started.
@@ -72,7 +72,7 @@ export interface Plugin {
 
 /**
  * Register a plugin.
- * @param {Plugin} plugin Plugin to register
+ * @param {Plugin} plugin Plugin to register.
  */
 export function registerPlugin(plugin: Plugin): void {
   window.enmity.plugins.registerPlugin(plugin);
@@ -80,7 +80,7 @@ export function registerPlugin(plugin: Plugin): void {
 
 /**
  * Get a plugin via its name.
- * @param {string} name Plugin's name
+ * @param {string} name Plugin's name.
  */
 export function getPlugin(name: string): void {
   return window.enmity.plugins.getPlugin(name);

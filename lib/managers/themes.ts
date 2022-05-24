@@ -37,7 +37,7 @@ export interface Theme {
   colours: Record<string, string>;
 
   /**
-   * Unsafe colors, themes the grey bar under the keyboard (for now)
+   * Unsafe colors. Themes the grey bar under the keyboard (for now)
    */
   unsafe_colors?: Record<string, string>;
 }
