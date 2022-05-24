@@ -6,7 +6,7 @@ export function reloadDiscord(): void {
 }
 
 /**
- * Get Discord's version
+ * Get Discord's version.
  */
 export function getVersion(): string {
   return window.enmity.native.Version;

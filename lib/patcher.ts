@@ -33,17 +33,17 @@ export interface Patchable {
  */
 export interface Patcher {
   /**
-   * Name of the caller
+   * Name of the caller.
    */
   caller: string;
 
   /**
-   * Type of the patcher
+   * Type of the patcher.
    */
   type: string;
 
   /**
-   * Internal ID of the patcher
+   * Internal ID of the patcher.
    */
   id: number;
 
@@ -64,8 +64,8 @@ export interface Patcher {
 export interface Patch extends Patchable {
   /**
    * Get the list of patcher used by this patch.
-   * @param id Name of the caller
-   * @returns {Patcher[]} Lists of patcher
+   * @param id Name of the caller.
+   * @returns {Patcher[]} List of patchers.
    */
   getPatchesByCaller: (id: string) => Patcher[];
 

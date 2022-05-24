@@ -86,14 +86,14 @@ export interface Command extends HasName, HasDescription {
   options?: CommandOption[];
 
   /**
-   * Function that's used to check if the command can be executed.
+   * Function to check if the command can be executed.
    * @param {Message} message
    * @returns {boolean}
    */
   predicate?: (message: Message) => boolean;
 
   /**
-   * Function that'll be executed when the command is ran.
+   * Function to be executed when the command is run.
    * @param {Argument[]} args List of arguments according to the command's options
    * @param {Message} message Message associated with the executed command
    */
@@ -126,7 +126,7 @@ export interface Argument {
   type: number;
 
   /**
-   * Is the argument focused.
+   * Whether the argument is focused.
    *
    * Not sure if this value is actually useful.
    */
@@ -138,13 +138,13 @@ export interface Argument {
  */
 export interface CommandOption extends HasName, HasDescription {
   /**
-   * Type of the option
+   * Type of the option.
    * @see {@link ApplicationCommandOptionType}
    */
   type: ApplicationCommandOptionType;
 
   /**
-   * Is the option required.
+   * Whether the option is required.
    */
   required?: boolean;
 
@@ -229,14 +229,14 @@ export enum InteractionTypes {
 }
 
 /**
- * Section ID used for Enmity built-in commands.
+ * Section ID used for Enmity's built-in commands.
  */
 export const EnmitySectionID = 'enmity';
 
 /**
  * Register a new command in Discord.
- * @param {string} caller Name of the caller
- * @param {Command[]} commands Commands to register
+ * @param {string} caller Name of the caller.
+ * @param {Command[]} commands Commands to register.
  */
 export function registerCommands(caller: string, commands: Command[]): void {
   window.enmity.commands.registerCommands(caller, commands);
@@ -244,7 +244,7 @@ export function registerCommands(caller: string, commands: Command[]): void {
 
 /**
  * Remove all commands registered by a caller.
- * @param {string} caller Name of the caller
+ * @param {string} caller Name of the caller.
  */
 export function unregisterCommands(caller: string): void {
   window.enmity.commands.unregisterCommands(caller);
