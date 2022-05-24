@@ -1,6 +1,4 @@
-export interface Module {
-    [key: string]: any;
-}
+export declare type Module = Record<string, any>;
 export interface DefaultOptions {
     all?: boolean;
     cache?: boolean;

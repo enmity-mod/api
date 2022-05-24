@@ -1,5 +1,5 @@
 import { Command } from '../api/commands';
-import { Patchable } from '../patcher';
+import { Patcher } from '../patcher';
 import { Author } from './common';
 export interface Plugin {
     name: string;
@@ -8,7 +8,7 @@ export interface Plugin {
     version?: string;
     authors?: Author[] | string[];
     commands?: Command[];
-    patches?: Patchable[];
+    patches?: Patcher[];
     onStart: () => void;
     onStop: () => void;
     onEnable?: () => void;
