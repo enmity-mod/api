@@ -1,12 +1,12 @@
 import { Command } from '../api/commands';
 import { Patcher } from '../patcher';
-import { Author } from './common';
+import { EntityAuthor } from '../common';
 export interface Plugin {
     name: string;
     description?: string;
     color?: string;
     version?: string;
-    authors?: Author[] | string[];
+    authors?: EntityAuthor[] | string[];
     commands?: Command[];
     patches?: Patcher[];
     onStart: () => void;

@@ -131,3 +131,7 @@ export interface Profile {
     premium_guild_since: string;
     mutual_guilds: Guild[];
 }
+export interface EntityAuthor {
+    name: string;
+    id?: string;
+}

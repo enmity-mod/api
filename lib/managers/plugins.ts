@@ -1,6 +1,6 @@
 import { Command } from '../api/commands';
 import { Patcher } from '../patcher';
-import { Author } from './common';
+import { EntityAuthor } from '../common';
 
 /**
  * Represents a plugin.
@@ -29,7 +29,7 @@ export interface Plugin {
   /**
    * Authors of the plugin.
    */
-  authors?: Author[] | string[];
+  authors?: EntityAuthor[] | string[];
 
   /**
    * List of commands of the plugin.

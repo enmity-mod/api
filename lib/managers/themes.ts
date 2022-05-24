@@ -1,4 +1,4 @@
-import { Author } from "./common";
+import { EntityAuthor } from "lib/common";
 
 export interface Theme {
   /**
@@ -24,7 +24,7 @@ export interface Theme {
   /**
    * Authors of the theme.
    */
-  authors?: Author[] | string[];
+  authors?: EntityAuthor[] | string[];
 
   /**
    * Colors for text and most background elements. Each item must a color for dark mode and a color for light mode, in that order.

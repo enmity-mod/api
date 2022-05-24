@@ -1,3 +1,5 @@
+// Discord types
+
 /**
  * Represents a Discord channel.
  */
@@ -43,7 +45,7 @@ export interface Permission {
 }
 
 /**
- * Represents a Discord channel permission
+ * Represents a Discord channel permission.
  */
 export interface ChannelPermission {
   id: string;
@@ -53,7 +55,7 @@ export interface ChannelPermission {
 }
 
 /**
- * Represents a Discord message
+ * Represents a Discord message.
  */
 export interface Message {
   guild: Guild;
@@ -61,7 +63,7 @@ export interface Message {
 }
 
 /**
- * Represents a Discord guild
+ * Represents a Discord guild.
  */
 export interface Guild {
   id: string;
@@ -100,7 +102,7 @@ export interface Guild {
 }
 
 /**
- * Represents a Discord role
+ * Represents a Discord role.
  */
 export interface Role {
   id: string;
@@ -119,7 +121,7 @@ export interface Role {
 }
 
 /**
- * Represents a Discord user
+ * Represents a Discord user.
  */
 export interface User {
   id: string;
@@ -147,7 +149,7 @@ export interface User {
 }
 
 /**
- * Represents a Discord account
+ * Represents a Discord account.
  */
 export interface Account {
   type: string;
@@ -157,7 +159,7 @@ export interface Account {
 }
 
 /**
- * Represents a Discord profile
+ * Represents a Discord profile.
  */
 export interface Profile {
   user: User;
@@ -165,4 +167,22 @@ export interface Profile {
   premium_since: string;
   premium_guild_since: string;
   mutual_guilds: Guild[];
+}
+
+
+// enmity-api types
+
+/**
+ * Represents an Enmity plugin or theme author.
+ */
+export interface EntityAuthor {
+  /**
+   * Name of the author.
+   */
+  name: string;
+
+  /**
+   * User ID of the author.
+   */
+  id?: string;
 }
