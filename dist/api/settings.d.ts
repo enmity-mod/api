@@ -2,11 +2,10 @@ import React from 'react';
 export declare type Serializable = string | number | boolean | {
     [key: string | number]: Serializable;
 } | Serializable[];
-export interface SettingsCallbackArgs {
+export declare type SettingsCallback = (args: {
     setting: string;
     value: Serializable;
-}
-export declare type SettingsCallback = (args: SettingsCallbackArgs) => void;
+}) => void;
 export interface SettingsStore {
     settings: Record<string, Serializable>;
     set: (key: string, value: Serializable) => void;
