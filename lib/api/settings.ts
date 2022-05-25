@@ -1,7 +1,10 @@
-type ReactElement = Object;
-type ReactComponent = (props: Record<string, any>) => ReactElement;
+import React from 'react';
 
-export interface SettingsCallbackArgs {
+export type Serializable = string | number | boolean | {
+  [key: string | number]: Serializable;
+} | Serializable[];
+
+export type SettingsCallback = (args: {
   /**
    * Key of the setting.
    */
@@ -10,55 +13,53 @@ export interface SettingsCallbackArgs {
   /**
    * Value of the setting.
    */
-  value: any;
-}
-
-export type SettingsCallback = (args: SettingsCallbackArgs) => void;
+  value: Serializable;
+}) => void;
 
 export interface SettingsStore {
   /**
    * Stored settings.
    */
-  settings: Record<string, any>;
+  settings: Record<string, Serializable>;
 
   /**
    * Set a setting.
    * @param {string} key Key of the setting.
-   * @param {?any} value Value of the setting.
+   * @param {?Serializable} value Value of the setting.
    */
-  set: (key: string, value: any) => void;
+  set: (key: string, value: Serializable) => void;
 
   /**
    * Get a setting.
    * @param {string} key Key of the setting.
-   * @param {?any} defaults Default value to use if the setting does not exist.
-   * @returns {any} Value of the setting.
+   * @param {?Serializable} defaults Default value to use if the setting does not exist.
+   * @returns {Serializable} Value of the setting.
    */
-  get: (key: string, defaults?: any) => any;
+  get: (key: string, defaults?: Serializable) => Serializable;
 
   /**
    * Toggle a setting.
    * @param {string} key Key of the setting.
-   * @param {?any} defaults Default value to use if the setting does not exist.
+   * @param {?boolean} defaults Default value to use if the setting does not exist.
    */
-  toggle: (key: string, defaults: boolean) => void;
+  toggle: (key: string, defaults?: boolean) => void;
 
   /**
    * Get a setting as a boolean.
    * @param {string} key Key of the setting.
-   * @param {?any} defaults Default value to use if the setting does not exist.
+   * @param {?Serializable} defaults Default value to use if the setting does not exist.
    * @returns {boolean} Value of the setting as a boolean.
    */
-  getBoolean: (key: string, defaults?: any) => boolean;
+  getBoolean: (key: string, defaults?: Serializable) => boolean;
 }
 
 /**
  * Set a setting.
  * @param {string} file Category of the setting.
  * @param {string} setting Key of the setting.
- * @param {any} value Value of the setting.
+ * @param {Serializable} value Value of the setting.
  */
-export function set(file: string, setting: string, value: any): void {
+export function set(file: string, setting: string, value: Serializable): void {
   window.enmity.settings.set(file, setting, value);
 }
 
@@ -66,10 +67,10 @@ export function set(file: string, setting: string, value: any): void {
  * Get a setting.
  * @param {string} file Category of the setting.
  * @param {string} setting Key of the setting.
- * @param {?any} defaults Default value to use if the setting does not exist.
- * @returns {any} Value of the setting.
+ * @param {?Serializable} defaults Default value to use if the setting does not exist.
+ * @returns {Serializable} Value of the setting.
  */
-export function get(file: string, setting: string, defaults?: any): any {
+export function get(file: string, setting: string, defaults?: Serializable): Serializable {
   return window.enmity.settings.get(file, setting, defaults);
 }
 
@@ -77,10 +78,10 @@ export function get(file: string, setting: string, defaults?: any): any {
  * Get a setting as a boolean.
  * @param {string} file Category of the setting.
  * @param {string} setting Key of the setting.
- * @param {?any} defaults Default value to use if the setting does not exist.
+ * @param {?Serializable} defaults Default value to use if the setting does not exist.
  * @returns {boolean} Value of the setting as a boolean.
  */
-export function getBoolean(file: string, setting: string, defaults?: any): boolean {
+export function getBoolean(file: string, setting: string, defaults?: Serializable): boolean {
   return window.enmity.settings.getBoolean(file, setting, defaults);
 }
 
@@ -96,11 +97,11 @@ export function toggle(file: string, setting: string, defaults?: boolean): void 
 
 /**
  * Create a React component that includes a {@link SettingsStore} in its props for a category.
- * @param {Function | Object} component
+ * @param {React.ComponentType} component Component to wrap.
  * @param {string} file Settings category.
- * @returns {ReactComponent} React componnet that includes the {@link SettingsStore} in its props.
+ * @returns {React.ComponentType} React component that includes the {@link SettingsStore} in its props.
  */
-export function connectComponent(component: Function | Object, file: string): ReactComponent {
+export function connectComponent(component: React.ComponentType, file: string): React.ComponentType {
   return window.enmity.settings.connectComponent(component, file);
 }
 

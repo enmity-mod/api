@@ -15,6 +15,8 @@
     "url": "https://github.com/enmity-mod/enmity-api/issues"
   },
   "devDependencies": {
+    "@types/react": "^18.0.9",
+    "@types/react-native": "^0.67.7",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
     "@typescript-eslint/parser": "^5.14.0",
     "eslint": "^8.11.0",

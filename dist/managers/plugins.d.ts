@@ -1,6 +1,7 @@
 import { Command } from '../api/commands';
-import { Patcher } from '../patcher';
 import { EntityAuthor } from '../common';
+import { Patcher } from '../patcher';
+import React from 'react';
 export interface Plugin {
     name: string;
     description?: string;
@@ -9,6 +10,7 @@ export interface Plugin {
     authors?: EntityAuthor[] | string[];
     commands?: Command[];
     patches?: Patcher[];
+    getSettingsPanel: React.ComponentType;
     onStart: () => void;
     onStop: () => void;
     onEnable?: () => void;

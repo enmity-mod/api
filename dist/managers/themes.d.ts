@@ -1,4 +1,4 @@
-import { EntityAuthor } from "lib/common";
+import { EntityAuthor } from '../common';
 export interface Theme {
     name: string;
     description?: string;

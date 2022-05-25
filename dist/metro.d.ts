@@ -44,8 +44,3 @@ export declare function getByDisplayName(...options: [displayName: string, optio
 export declare function getByTypeName(...options: [displayName: string, options?: DisplayNameOptions & ConditionalBulk] | string[]): Module;
 export declare function getByName(...options: [displayName: string, options?: DisplayNameOptions & ConditionalBulk] | string[]): Module;
 export declare function getByKeyword(...options: [keyword: string, options?: DisplayNameOptions & KeywordOptions] | string[]): Module;
-declare global {
-    interface Window {
-        enmity: Record<string, any>;
-    }
-}

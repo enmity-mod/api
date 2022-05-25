@@ -78,9 +78,3 @@ export function getByName(...options: [displayName: string, options?: DisplayNam
 export function getByKeyword(...options: [keyword: string, options?: DisplayNameOptions & KeywordOptions] | string[]): Module {
   return window.enmity.modules.getByKeyword(...options);
 }
-
-declare global {
-  interface Window {
-    enmity: Record<string, any>;
-  }
-}

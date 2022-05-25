@@ -1,6 +1,8 @@
 import { Command } from '../api/commands';
-import { Patcher } from '../patcher';
 import { EntityAuthor } from '../common';
+import { Patcher } from '../patcher';
+
+import React from 'react';
 
 /**
  * Represents a plugin.
@@ -40,6 +42,11 @@ export interface Plugin {
    * List of patchers of the plugin.
    */
   patches?: Patcher[];
+
+  /**
+   * Settings panel of the plugin.
+   */
+  getSettingsPanel: React.ComponentType;
 
   /**
    * Executed when the plugin is started.

@@ -9,8 +9,9 @@ export interface Channel {
   type: number;
   name: string;
   position: number;
-  recipients: any[];
-  rawRecipients: any[];
+  topic?: string;
+  recipients: string[];
+  rawRecipients: User[];
   permissionOverwrites: Record<string, ChannelPermission>;
   bitrate: number;
   videoQualityMode?: number;
@@ -20,7 +21,7 @@ export interface Channel {
   icon?: string;
   banner?: string;
   application_id?: string;
-  nicks: any;
+  nicks: Object;
   nsfw: boolean;
   parent_id: string;
   memberListId?: string;
@@ -31,9 +32,9 @@ export interface Channel {
   lastPinTimestamp: string;
   messageCount?: number;
   memberCount?: number;
-  memberIdsPreview?: any;
-  member?: any;
-  threadMetadata?: any;
+  memberIdsPreview?: string[];
+  member?: ThreadMember;
+  threadMetadata?: ThreadMetadata;
 }
 
 /**
@@ -63,6 +64,18 @@ export interface Message {
 }
 
 /**
+ * Represents Discord thread metadata.
+ */
+export interface ThreadMetadata {
+  archived: boolean;
+  autoArchiveDuration: number;
+  archiveTimestamp: string;
+  locked: boolean;
+  invitable?: boolean;
+  createTimestamp?: string;
+}
+
+/**
  * Represents a Discord guild.
  */
 export interface Guild {
@@ -73,7 +86,7 @@ export interface Guild {
   icon?: string;
   splash?: string;
   banner?: string;
-  features: Record<any, any>;
+  features: Set<string>;
   preferredLocale: string;
   roles: Record<string, Role>;
   afkChannelId: string;
@@ -115,7 +128,7 @@ export interface Role {
   colorString: string;
   hoist: boolean;
   managed: boolean;
-  tags?: any;
+  tags?: RoleTags;
   icon?: string;
   unicodeEmoji?: string;
 }
@@ -129,6 +142,7 @@ export interface User {
   username: string;
   bio: string;
   avatar: string;
+  avatarDecoration?: null;
   banner: string;
   accentColor?: null | string;
   publicFlags: number;
@@ -145,7 +159,8 @@ export interface User {
   premiumUsageFlags?: number;
   phone?: string;
   nsfwAllowed?: boolean;
-  guildMemberAvatars?: unknown;
+  guildMemberAvatars?: Record<string, string>;
+  pronouns?: string;
 }
 
 /**
@@ -169,6 +184,27 @@ export interface Profile {
   mutual_guilds: Guild[];
 }
 
+/**
+ * Represents a Discord thread member.
+ */
+export interface ThreadMember {
+  id?: string;
+  user_id?: string;
+  joinTimestamp: string;
+  flags: number;
+  muted?: boolean;
+  muteConfig?: null;
+}
+
+/**
+ * Represents Discord role tags.
+ */
+export interface RoleTags {
+  bot_id?: string;
+  integration_id?: string;
+  premium_subscriber?: null;
+}
+
 
 // enmity-api types
 
@@ -185,4 +221,11 @@ export interface EntityAuthor {
    * User ID of the author.
    */
   id?: string;
+}
+
+declare global {
+  interface Window {
+    enmity: Record<string, any>;
+  }
+  const window: Window;
 }
