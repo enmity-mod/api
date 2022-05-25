@@ -1,9 +1,15 @@
 import React from 'react';
 
+/**
+ * JSON-serializable object that can be stored as the value of a setting.
+ */
 export type Serializable = string | number | boolean | {
   [key: string | number]: Serializable;
 } | Serializable[];
 
+/**
+ * Callback used to {@link subscribe} to changes in a settings category.
+ */
 export type SettingsCallback = (args: {
   /**
    * Key of the setting.
