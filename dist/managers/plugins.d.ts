@@ -17,5 +17,5 @@ export interface Plugin {
     onDisable?: () => void;
 }
 export declare function registerPlugin(plugin: Plugin): void;
-export declare function getPlugin(name: string): void;
+export declare function getPlugin(name: string): Plugin;
 export declare function getPlugins(): Plugin[];

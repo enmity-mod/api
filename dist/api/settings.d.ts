@@ -1,5 +1,5 @@
 import React from 'react';
-export declare type Serializable = string | number | boolean | {
+export declare type Serializable = string | number | boolean | null | {
     [key: string | number]: Serializable;
 } | Serializable[];
 export declare type SettingsCallback = (args: {
@@ -21,4 +21,4 @@ export declare function connectComponent(component: React.ComponentType, file: s
 export declare function makeStore(file: string): SettingsStore;
 export declare function subscribe(file: string, callback: SettingsCallback): void;
 export declare function unsubscribe(file: string, callback: SettingsCallback): void;
-export declare function connectStores(file: string): Function;
+export declare function connectStores(component: React.ComponentType, file: string): React.ComponentType;

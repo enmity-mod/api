@@ -10,8 +10,8 @@ export function getModule(filter, options) {
 export function getModules(filter) {
     return window.enmity.modules.getModules(filter);
 }
-export function bulk(...filter) {
-    return window.enmity.modules.bulk(...filter);
+export function bulk(...filters) {
+    return window.enmity.modules.bulk(...filters);
 }
 export function getByProps(...options) {
     return window.enmity.modules.getByProps(...options);

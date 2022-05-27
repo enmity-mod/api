@@ -5,8 +5,9 @@ import { Module } from './common';
  * @param {any} self A reference to `this` in the context of the patched function.
  * @param {any[]} args The list of arguments sent to the patched function.
  * @param {any} res A reference to the original function for before and instead patches, and the result of the original function for after patches.
+ * @returns {void|any} The new arguments or return value of the function. To keep the original arguments or return value (probably modified in place in the function body), don't return anything.
  */
-export type PatchCallback = (self: any, args: any[], res: any) => void;
+export type PatchCallback = (self: any, args: any[], res: any) => void | any;
 
 /**
  * Represents a patch.

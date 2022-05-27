@@ -1,7 +1,7 @@
 import { Message } from '../common';
 
 /**
- * Generic interface that implements name and displayName.
+ * Generic interface that implements `name` and `displayName`.
  */
 export interface HasName {
   /**
@@ -16,7 +16,7 @@ export interface HasName {
 }
 
 /**
- * Generic interface that implements description and displayDescription.
+ * Generic interface that implements `description` and `displayDescription`.
  */
 export interface HasDescription {
   /**

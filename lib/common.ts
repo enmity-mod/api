@@ -78,7 +78,7 @@ export interface ThreadMetadata {
 /**
  * Represents a Discord thread member.
  */
- export interface ThreadMember {
+export interface ThreadMember {
   id?: string;
   user_id?: string;
   joinTimestamp: string;

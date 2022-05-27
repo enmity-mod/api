@@ -53,6 +53,14 @@ export interface ThreadMetadata {
     invitable?: boolean;
     createTimestamp?: string;
 }
+export interface ThreadMember {
+    id?: string;
+    user_id?: string;
+    joinTimestamp: string;
+    flags: number;
+    muted?: boolean;
+    muteConfig?: null;
+}
 export interface Guild {
     id: string;
     name: string;
@@ -142,14 +150,6 @@ export interface Profile {
     premium_guild_since: string;
     mutual_guilds: Guild[];
 }
-export interface ThreadMember {
-    id?: string;
-    user_id?: string;
-    joinTimestamp: string;
-    flags: number;
-    muted?: boolean;
-    muteConfig?: null;
-}
 export interface RoleTags {
     bot_id?: string;
     integration_id?: string;
@@ -159,6 +159,7 @@ export interface EntityAuthor {
     name: string;
     id?: string;
 }
+export declare type Module = Function | Record<string, any>;
 declare global {
     interface Window {
         enmity: Record<string, any>;

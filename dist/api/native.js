@@ -1,15 +1,6 @@
-export function reloadDiscord() {
-    window.enmity.native.reloadDiscord();
-}
-export function getVersion() {
-    return window.enmity.native.Version;
-}
-export function getBuild() {
-    return window.enmity.native.Build;
-}
-export function getDevice() {
-    return window.enmity.native.device;
-}
-export function getSystemVersion() {
-    return window.enmity.native.systemVersion;
-}
+const { Native } = window.enmity.modules.common;
+export const reload = Native.BundleUpdaterManager.reload;
+export const version = Native.InfoDictionaryManager.Version;
+export const build = Native.InfoDictionaryManager.Build;
+export const device = Native.DCDDeviceManager.device;
+export const os = Native.DCDDeviceManager.systemVersion;

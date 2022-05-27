@@ -102,10 +102,12 @@ export function toggle(file: string, setting: string, defaults?: boolean): void 
 }
 
 /**
- * Create a React component whose props include a {@link SettingsStore} for a category.
+ * Wrap a React component so that it will be rerendered whenever a setting is changed in a category.
+ * 
+ * The component will have a prop, `settings`, that is a {@link SettingsStore} for the specified category.
  * @param {React.ComponentType} component Component to wrap.
  * @param {string} file Settings category.
- * @returns {React.ComponentType} React component that includes the {@link SettingsStore} in its props.
+ * @returns {React.ComponentType} Wrapped component.
  */
 export function connectComponent(component: React.ComponentType, file: string): React.ComponentType {
   return window.enmity.settings.connectComponent(component, file);
@@ -139,10 +141,15 @@ export function unsubscribe(file: string, callback: SettingsCallback): void {
 }
 
 /**
- *
+ * Wrap a React component so that it will be rerendered whenever any setting for any Enmity category is changed.
+ * 
+ * The component will have a prop, `settings`, that is a {@link SettingsStore} for the specified category.
+ * 
+ * Do not use this unless you need integration with other plugins. Prefer {@link connectComponent} to avoid needless performance impacts.
+ * @param {React.ComponentType} component Component to wrap.
  * @param {string} file Settings category.
- * @returns {Function}
+ * @returns {React.ComponentType} Wrapped component.
  */
-export function connectStores(file: string): Function {
-  return window.enmity.settings.connectStores(file);
+export function connectStores(component: React.ComponentType, file: string): React.ComponentType {
+  return window.enmity.settings.connectStores(component, file);
 }

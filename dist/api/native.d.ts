@@ -1,5 +1,5 @@
-export declare function reloadDiscord(): void;
-export declare function getVersion(): string;
-export declare function getBuild(): string;
-export declare function getDevice(): string;
-export declare function getSystemVersion(): string;
+export declare const reload: () => void;
+export declare const version: string;
+export declare const build: string;
+export declare const device: string;
+export declare const os: string;
