@@ -230,9 +230,22 @@ export interface EntityAuthor {
  */
 export type Module = Function | Record<string, any>;
 
+export interface API extends Record<string, any> {
+  modules: typeof import("./metro");
+  themer: typeof import("./managers/themes");
+  patcher: typeof import("./patcher");
+  version: string;
+  plugins: typeof import("./managers/plugins");
+  clyde: typeof import("./api/clyde");
+  commands: typeof import("./api/commands");
+  settings: typeof import("./api/settings");
+  components: typeof import("./components");
+  native: typeof import("./api/native");
+}
+
 declare global {
   interface Window {
-    enmity: Record<string, any>;
+    enmity: API;
   }
   const window: Window;
 }

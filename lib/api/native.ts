@@ -1,26 +1,26 @@
-const { Native } = window.enmity.modules.common;
+const { native } = window.enmity;
 
 /**
  * Reload Discord.
  */
-export const reload: () => void = Native.BundleUpdaterManager.reload;
+export const reload: () => void = native.reload;
 
 /**
  * Discord's version.
  */
-export const version: string = Native.InfoDictionaryManager.Version;
+export const version: string = native.version;
 
 /**
  * Discord's build number.
  */
-export const build: string = Native.InfoDictionaryManager.Build;
+export const build: string = native.build;
 
 /**
  * User's device identifier.
  */
-export const device: string = Native.DCDDeviceManager.device;
+export const device: string = native.device;
 
 /**
- * User's device version.
+ * User's OS version.
  */
-export const os: string = Native.DCDDeviceManager.systemVersion;
+export const os: string = native.version;

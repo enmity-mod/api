@@ -53,10 +53,10 @@ export interface SettingsStore {
   /**
    * Get a setting as a boolean.
    * @param {string} key Key of the setting.
-   * @param {?Serializable} defaults Default value to use if the setting does not exist.
+   * @param {?boolean} defaults Default value to use if the setting does not exist.
    * @returns {boolean} Value of the setting as a boolean.
    */
-  getBoolean: (key: string, defaults?: Serializable) => boolean;
+  getBoolean: (key: string, defaults?: boolean) => boolean;
 }
 
 /**
@@ -84,10 +84,10 @@ export function get(file: string, setting: string, defaults?: Serializable): Ser
  * Get a setting as a boolean.
  * @param {string} file Category of the setting.
  * @param {string} setting Key of the setting.
- * @param {?Serializable} defaults Default value to use if the setting does not exist.
+ * @param {?boolean} defaults Default value to use if the setting does not exist.
  * @returns {boolean} Value of the setting as a boolean.
  */
-export function getBoolean(file: string, setting: string, defaults?: Serializable): boolean {
+export function getBoolean(file: string, setting: string, defaults?: boolean): boolean {
   return window.enmity.settings.getBoolean(file, setting, defaults);
 }
 
