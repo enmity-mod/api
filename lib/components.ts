@@ -4,7 +4,7 @@ import ReactNative from 'react-native';
 const { components } = window.enmity;
 
 /**
- * React Native Native Alert
+ * React Native Alert
  * @see {@link https://reactnative.dev/docs/alert}
  */
 export const Alert: typeof ReactNative.Alert = components.Alert;

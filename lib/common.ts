@@ -76,6 +76,18 @@ export interface ThreadMetadata {
 }
 
 /**
+ * Represents a Discord thread member.
+ */
+ export interface ThreadMember {
+  id?: string;
+  user_id?: string;
+  joinTimestamp: string;
+  flags: number;
+  muted?: boolean;
+  muteConfig?: null;
+}
+
+/**
  * Represents a Discord guild.
  */
 export interface Guild {
@@ -185,19 +197,7 @@ export interface Profile {
 }
 
 /**
- * Represents a Discord thread member.
- */
-export interface ThreadMember {
-  id?: string;
-  user_id?: string;
-  joinTimestamp: string;
-  flags: number;
-  muted?: boolean;
-  muteConfig?: null;
-}
-
-/**
- * Represents Discord role tags.
+ * Represents the tags of a Discord role.
  */
 export interface RoleTags {
   bot_id?: string;
@@ -222,6 +222,13 @@ export interface EntityAuthor {
    */
   id?: string;
 }
+
+/**
+ * Type alias for a module.
+ *
+ * Can either be a Function or an Object.
+ */
+export type Module = Function | Record<string, any>;
 
 declare global {
   interface Window {

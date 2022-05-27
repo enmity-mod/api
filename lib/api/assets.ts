@@ -52,7 +52,7 @@ export function find(filter: (asset: Asset) => boolean): Asset {
 }
 
 /**
- *
+ * Get an asset by its name.
  * @param name Name of the asset.
  * @returns {Asset} The asset.
  */

@@ -27,7 +27,7 @@ export interface Theme {
   authors?: EntityAuthor[] | string[];
 
   /**
-   * Colors for text and most background elements. Each item must a color for dark mode and a color for light mode, in that order.
+   * Colors for text and most background elements. Each item must have a color for dark mode and a color for light mode, in that order.
    */
   theme_color_map: Record<string, [string, string]>;
 
@@ -37,7 +37,7 @@ export interface Theme {
   colours: Record<string, string>;
 
   /**
-   * Unsafe colors. Themes the grey bar under the keyboard (for now)
+   * Unsafe colors. Themes the grey bar under the keyboard (for now).
    */
   unsafe_colors?: Record<string, string>;
 }

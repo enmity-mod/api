@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * JSON-serializable object that can be stored as the value of a setting.
  */
-export type Serializable = string | number | boolean | {
+export type Serializable = string | number | boolean | null | {
   [key: string | number]: Serializable;
 } | Serializable[];
 
@@ -102,7 +102,7 @@ export function toggle(file: string, setting: string, defaults?: boolean): void 
 }
 
 /**
- * Create a React component that includes a {@link SettingsStore} in its props for a category.
+ * Create a React component whose props include a {@link SettingsStore} for a category.
  * @param {React.ComponentType} component Component to wrap.
  * @param {string} file Settings category.
  * @returns {React.ComponentType} React component that includes the {@link SettingsStore} in its props.

@@ -86,10 +86,11 @@ export function registerPlugin(plugin: Plugin): void {
 }
 
 /**
- * Get a plugin via its name.
+ * Get a plugin by its name.
  * @param {string} name Plugin's name.
+ * @returns {Plugin}
  */
-export function getPlugin(name: string): void {
+export function getPlugin(name: string): Plugin {
   return window.enmity.plugins.getPlugin(name);
 }
 

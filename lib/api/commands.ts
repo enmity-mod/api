@@ -18,7 +18,6 @@ export interface HasName {
 /**
  * Generic interface that implements description and displayDescription.
  */
-
 export interface HasDescription {
   /**
    * Internal description.
@@ -32,7 +31,7 @@ export interface HasDescription {
 }
 
 /**
- * Represents a Discord section.
+ * Represents a Discord command section.
  */
 export interface Section {
   /**
@@ -43,7 +42,7 @@ export interface Section {
   /**
    * Type of the section.
    */
-  type: number;
+  type: ApplicationCommandSectionType;
 
   /**
    * Name of the section.
@@ -86,7 +85,7 @@ export interface Command extends HasName, HasDescription {
   options?: CommandOption[];
 
   /**
-   * Function to check if the command can be executed.
+   * Function to check whether the command can be executed.
    * @param {Message} message
    * @returns {boolean}
    */
@@ -94,8 +93,8 @@ export interface Command extends HasName, HasDescription {
 
   /**
    * Function to be executed when the command is run.
-   * @param {Argument[]} args List of arguments according to the command's options
-   * @param {Message} message Message associated with the executed command
+   * @param {Argument[]} args List of arguments according to the command's options.
+   * @param {Message} message Message associated with the executed command.
    */
   execute: (args: Argument[], message?: Message) => void;
 }
@@ -123,7 +122,7 @@ export interface Argument {
    * Will match the options's type.
    * @see {@link ApplicationCommandOptionType}
    */
-  type: number;
+  type: ApplicationCommandOptionType;
 
   /**
    * Whether the argument is focused.
@@ -218,6 +217,7 @@ export enum ApplicationCommandOptionType {
   Role = 8,
   Mentionnable = 9,
   Number = 10,
+  Attachment = 11,
 }
 
 /**
