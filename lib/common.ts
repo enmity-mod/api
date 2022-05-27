@@ -232,16 +232,16 @@ export type Module = Function | Record<string, any>;
 
 declare global {
   interface API extends Record<string, any> {
-    modules: typeof import("./metro");
-    themer: typeof import("./managers/themes");
-    patcher: typeof import("./patcher");
+    modules: typeof import('./metro');
+    themer: typeof import('./managers/themes');
+    patcher: typeof import('./patcher');
     version: string;
-    plugins: typeof import("./managers/plugins");
-    clyde: typeof import("./api/clyde");
-    commands: typeof import("./api/commands");
-    settings: typeof import("./api/settings");
-    components: typeof import("./components");
-    native: typeof import("./api/native");
+    plugins: typeof import('./managers/plugins');
+    clyde: typeof import('./api/clyde');
+    commands: typeof import('./api/commands');
+    settings: typeof import('./api/settings');
+    components: typeof import('./components');
+    native: typeof import('./api/native');
   }
 
   interface Window {

@@ -1,7 +1,7 @@
 import { Module } from './common';
 
 /**
- * 
+ *
  */
 export interface DefaultOptions {
   /**
@@ -21,17 +21,17 @@ export interface DefaultOptions {
 }
 
 /**
- * 
+ *
  */
 export interface ConditionalBulk extends DefaultOptions {
   /**
-   * Whether to mark a 
+   * Whether to mark a
    */
   bulk: true;
 }
 
 /**
- * 
+ *
  */
 export interface DisplayNameOptions {
   /**
@@ -41,7 +41,7 @@ export interface DisplayNameOptions {
 }
 
 /**
- * 
+ *
  */
 export interface KeywordOptions extends DefaultOptions {
   /**
@@ -81,7 +81,7 @@ export function getModule(filter: SearchFilter, options?: DefaultOptions): Modul
 
 /**
  * Get all modules that satisfy a filter.
- * @param {SearchFilter} filter The filter to check 
+ * @param {SearchFilter} filter The filter to check
  * @returns {Module[]|undefined}
  */
 export function getModules(filter: SearchFilter): Module[] | undefined {
