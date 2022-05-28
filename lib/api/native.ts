@@ -3,7 +3,9 @@ const { native } = window.enmity;
 /**
  * Reload Discord.
  */
-export const reload: () => void = native.reload;
+export function reload(): void {
+  native.reload();
+}
 
 /**
  * Discord's version.

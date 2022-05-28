@@ -22,7 +22,7 @@ export declare const TouchableWithoutFeedback: typeof ReactNative.TouchableWitho
 export declare const Touchable: typeof ReactNative.Touchable;
 export declare const View: typeof ReactNative.View;
 export declare const VirtualizedList: typeof ReactNative.VirtualizedList;
-export declare const Form: React.ForwardRefExoticComponent<{}>;
+export declare const Form: React.ForwardRefExoticComponent<any>;
 export declare const FormArrow: React.ComponentType;
 export declare const FormCTA: React.ComponentType;
 export declare const FormCTAButton: React.ComponentType;
@@ -31,7 +31,7 @@ export declare const FormCheckbox: React.ComponentType;
 export declare const FormDivider: React.ComponentType;
 export declare const FormHint: React.ComponentType;
 export declare const FormIcon: React.ComponentType;
-export declare const FormInput: React.ForwardRefExoticComponent<{}>;
+export declare const FormInput: React.ForwardRefExoticComponent<any>;
 export declare const FormLabel: React.ComponentType;
 export declare const FormRadio: React.ComponentType;
 export declare const FormRow: React.ComponentType & {
