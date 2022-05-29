@@ -1,34 +1,28 @@
+const { native } = window.enmity;
+
 /**
  * Reload Discord.
  */
-export function reloadDiscord(): void {
-  window.enmity.native.reloadDiscord();
+export function reload(): void {
+  native.reload();
 }
 
 /**
- * Get Discord's version.
+ * Discord's version.
  */
-export function getVersion(): string {
-  return window.enmity.native.Version;
-}
+export const version: string = native.version;
 
 /**
- * Get Discord's build number.
+ * Discord's build number.
  */
-export function getBuild(): string {
-  return window.enmity.native.Build;
-}
+export const build: string = native.build;
 
 /**
- * Get user's device identifier.
+ * User's device identifier.
  */
-export function getDevice(): string {
-  return window.enmity.native.device;
-}
+export const device: string = native.device;
 
 /**
- * Get user's device version.
+ * User's OS version.
  */
-export function getSystemVersion(): string {
-  return window.enmity.native.systemVersion;
-}
+export const os: string = native.version;

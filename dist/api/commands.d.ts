@@ -9,7 +9,7 @@ export interface HasDescription {
 }
 export interface Section {
     id: string;
-    type: number;
+    type: ApplicationCommandSectionType;
     name: string;
 }
 export interface Command extends HasName, HasDescription {
@@ -24,7 +24,7 @@ export interface Command extends HasName, HasDescription {
 export interface Argument {
     name: string;
     value: string;
-    type: number;
+    type: ApplicationCommandOptionType;
     focused?: boolean;
 }
 export interface CommandOption extends HasName, HasDescription {
@@ -66,7 +66,8 @@ export declare enum ApplicationCommandOptionType {
     Channel = 7,
     Role = 8,
     Mentionnable = 9,
-    Number = 10
+    Number = 10,
+    Attachment = 11
 }
 export declare enum InteractionTypes {
     ApplicationCommand = 2,

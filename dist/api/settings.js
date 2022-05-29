@@ -22,6 +22,6 @@ export function subscribe(file, callback) {
 export function unsubscribe(file, callback) {
     window.enmity.settings.unsubscribe(file, callback);
 }
-export function connectStores(file) {
-    return window.enmity.settings.connectStores(file);
+export function connectStores(component, file) {
+    return window.enmity.settings.connectStores(component, file);
 }

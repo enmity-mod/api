@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * JSON-serializable object that can be stored as the value of a setting.
  */
-export type Serializable = string | number | boolean | {
+export type Serializable = string | number | boolean | null | {
   [key: string | number]: Serializable;
 } | Serializable[];
 
@@ -53,10 +53,10 @@ export interface SettingsStore {
   /**
    * Get a setting as a boolean.
    * @param {string} key Key of the setting.
-   * @param {?Serializable} defaults Default value to use if the setting does not exist.
+   * @param {?boolean} defaults Default value to use if the setting does not exist.
    * @returns {boolean} Value of the setting as a boolean.
    */
-  getBoolean: (key: string, defaults?: Serializable) => boolean;
+  getBoolean: (key: string, defaults?: boolean) => boolean;
 }
 
 /**
@@ -84,10 +84,10 @@ export function get(file: string, setting: string, defaults?: Serializable): Ser
  * Get a setting as a boolean.
  * @param {string} file Category of the setting.
  * @param {string} setting Key of the setting.
- * @param {?Serializable} defaults Default value to use if the setting does not exist.
+ * @param {?boolean} defaults Default value to use if the setting does not exist.
  * @returns {boolean} Value of the setting as a boolean.
  */
-export function getBoolean(file: string, setting: string, defaults?: Serializable): boolean {
+export function getBoolean(file: string, setting: string, defaults?: boolean): boolean {
   return window.enmity.settings.getBoolean(file, setting, defaults);
 }
 
@@ -102,10 +102,12 @@ export function toggle(file: string, setting: string, defaults?: boolean): void 
 }
 
 /**
- * Create a React component that includes a {@link SettingsStore} in its props for a category.
+ * Wrap a React component so that it will be rerendered whenever a setting is changed in a category.
+ *
+ * The component will have a prop, `settings`, that is a {@link SettingsStore} for the specified category.
  * @param {React.ComponentType} component Component to wrap.
  * @param {string} file Settings category.
- * @returns {React.ComponentType} React component that includes the {@link SettingsStore} in its props.
+ * @returns {React.ComponentType} Wrapped component.
  */
 export function connectComponent(component: React.ComponentType, file: string): React.ComponentType {
   return window.enmity.settings.connectComponent(component, file);
@@ -139,10 +141,15 @@ export function unsubscribe(file: string, callback: SettingsCallback): void {
 }
 
 /**
+ * Wrap a React component so that it will be rerendered whenever any setting for any Enmity category is changed.
  *
+ * The component will have a prop, `settings`, that is a {@link SettingsStore} for the specified category.
+ *
+ * Do not use this unless you need integration with other plugins. Prefer {@link connectComponent} to avoid needless performance impacts.
+ * @param {React.ComponentType} component Component to wrap.
  * @param {string} file Settings category.
- * @returns {Function}
+ * @returns {React.ComponentType} Wrapped component.
  */
-export function connectStores(file: string): Function {
-  return window.enmity.settings.connectStores(file);
+export function connectStores(component: React.ComponentType, file: string): React.ComponentType {
+  return window.enmity.settings.connectStores(component, file);
 }

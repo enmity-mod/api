@@ -4,7 +4,7 @@ import ReactNative from 'react-native';
 const { components } = window.enmity;
 
 /**
- * React Native Native Alert
+ * React Native Alert
  * @see {@link https://reactnative.dev/docs/alert}
  */
 export const Alert: typeof ReactNative.Alert = components.Alert;
@@ -138,7 +138,7 @@ export const VirtualizedList: typeof ReactNative.VirtualizedList = components.Vi
 /**
  * Discord Form
  */
-export const Form: React.ForwardRefExoticComponent<{}> = components.Form;
+export const Form: React.ForwardRefExoticComponent<any> = components.Form;
 
 /**
  * Discord FormArrow
@@ -183,7 +183,7 @@ export const FormIcon: React.ComponentType = components.FormIcon;
 /**
  * Discord FormInput
  */
-export const FormInput: React.ForwardRefExoticComponent<{}> = components.FormInput;
+export const FormInput: React.ForwardRefExoticComponent<any> = components.FormInput;
 
 /**
  * Discord FormLabel

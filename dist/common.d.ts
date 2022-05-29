@@ -53,6 +53,14 @@ export interface ThreadMetadata {
     invitable?: boolean;
     createTimestamp?: string;
 }
+export interface ThreadMember {
+    id?: string;
+    user_id?: string;
+    joinTimestamp: string;
+    flags: number;
+    muted?: boolean;
+    muteConfig?: null;
+}
 export interface Guild {
     id: string;
     name: string;
@@ -142,14 +150,6 @@ export interface Profile {
     premium_guild_since: string;
     mutual_guilds: Guild[];
 }
-export interface ThreadMember {
-    id?: string;
-    user_id?: string;
-    joinTimestamp: string;
-    flags: number;
-    muted?: boolean;
-    muteConfig?: null;
-}
 export interface RoleTags {
     bot_id?: string;
     integration_id?: string;
@@ -159,9 +159,23 @@ export interface EntityAuthor {
     name: string;
     id?: string;
 }
+export declare type Module = Function | Record<string, any>;
+interface API extends Record<string, any> {
+    modules: typeof import('./metro');
+    themer: typeof import('./managers/themes');
+    patcher: typeof import('./patcher');
+    version: string;
+    plugins: typeof import('./managers/plugins');
+    clyde: typeof import('./api/clyde');
+    commands: typeof import('./api/commands');
+    settings: typeof import('./api/settings');
+    components: typeof import('./components');
+    native: typeof import('./api/native');
+}
+interface Window {
+    enmity: API;
+}
 declare global {
-    interface Window {
-        enmity: Record<string, any>;
-    }
     const window: Window;
 }
+export {};

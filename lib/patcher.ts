@@ -1,17 +1,13 @@
-/**
- * Type alias for Mdl.
- *
- * Can either be a Function or an Object.
- */
-export type Mdl = Function | object;
+import { Module } from './common';
 
 /**
  * Callback for a patch.
  * @param {any} self A reference to `this` in the context of the patched function.
  * @param {any[]} args The list of arguments sent to the patched function.
  * @param {any} res A reference to the original function for before and instead patches, and the result of the original function for after patches.
+ * @returns {void|any} The new arguments or return value of the function. To keep the original arguments or return value (probably modified in place in the function body), don't return anything.
  */
-export type PatchCallback = (self: any, args: any[], res: any) => void;
+export type PatchCallback = (self: any, args: any[], res: any) => void | any;
 
 /**
  * Represents a patch.
@@ -61,24 +57,24 @@ export interface Patcher {
    *
    * Patch will be executed before the original function is called.
    */
-  before: (mdl: Mdl, func: string, callback: PatchCallback) => () => void;
+  before: (mdl: Module, func: string, callback: PatchCallback) => () => void;
 
   /**
    * Apply an instead patch.
    *
    * Patch will replace the original function call.
    */
-  instead: (mdl: Mdl, func: string, callback: PatchCallback) => () => void;
+  instead: (mdl: Module, func: string, callback: PatchCallback) => () => void;
 
   /**
    * Apply an after patch.
    *
    * Patch will be executed after the original function has been called.
    */
-  after: (mdl: Mdl, func: string, callback: PatchCallback) => () => void;
+  after: (mdl: Module, func: string, callback: PatchCallback) => () => void;
 
   /**
-   * Unpatch all the patches.
+   * Unpatch all patches from this patcher.
    */
   unpatchAll: () => void;
 }
@@ -98,7 +94,7 @@ export function create(name: string): Patcher {
  */
 export function before(
   caller: string,
-  mdl: Mdl,
+  mdl: Module,
   func: string,
   callback: PatchCallback,
 ): () => void {
@@ -112,7 +108,7 @@ export function before(
  */
 export function instead(
   caller: string,
-  mdl: Mdl,
+  mdl: Module,
   func: string,
   callback: PatchCallback,
 ): () => void {
@@ -126,7 +122,7 @@ export function instead(
  */
 export function after(
   caller: string,
-  mdl: Mdl,
+  mdl: Module,
   func: string,
   callback: PatchCallback,
 ): () => void {

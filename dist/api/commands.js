@@ -35,6 +35,7 @@ export var ApplicationCommandOptionType;
     ApplicationCommandOptionType[ApplicationCommandOptionType["Role"] = 8] = "Role";
     ApplicationCommandOptionType[ApplicationCommandOptionType["Mentionnable"] = 9] = "Mentionnable";
     ApplicationCommandOptionType[ApplicationCommandOptionType["Number"] = 10] = "Number";
+    ApplicationCommandOptionType[ApplicationCommandOptionType["Attachment"] = 11] = "Attachment";
 })(ApplicationCommandOptionType || (ApplicationCommandOptionType = {}));
 export var InteractionTypes;
 (function (InteractionTypes) {
