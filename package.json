@@ -1,112 +1,31 @@
 {
-  "name": "enmity-api",
-  "description": "Api wrapper for Enmity.",
-  "version": "1.0.8",
-  "license": "GPL-3.0",
-  "scripts": {
-    "build": "tsc",
-    "docs": "typedoc --readme none --entryPointStrategy expand ./lib"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/enmity-mod/enmity-api.git"
-  },
-  "bugs": {
-    "url": "https://github.com/enmity-mod/enmity-api/issues"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.9",
-    "@types/react-native": "^0.67.7",
-    "@typescript-eslint/eslint-plugin": "^5.14.0",
-    "@typescript-eslint/parser": "^5.14.0",
-    "eslint": "^8.11.0",
-    "typedoc": "^0.22.13",
-    "typescript": "^4.5.4"
-  },
-  "exports": {
-    "./api/assets": {
-      "types": "./dist/api/assets.d.ts",
-      "import": "./dist/api/assets.js"
-    },
-    "./api/clyde": {
-      "types": "./dist/api/clyde.d.ts",
-      "import": "./dist/api/clyde.js"
-    },
-    "./api/commands": {
-      "types": "./dist/api/commands.d.ts",
-      "import": "./dist/api/commands.js"
-    },
-    "./api/native": {
-      "types": "./dist/api/native.d.ts",
-      "import": "./dist/api/native.js"
-    },
-    "./api/settings": {
-      "types": "./dist/api/settings.d.ts",
-      "import": "./dist/api/settings.js"
-    },
-    "./common": {
-      "types": "./dist/common.d.ts",
-      "import": "./dist/common.js"
-    },
-    "./components": {
-      "types": "./dist/components.d.ts",
-      "import": "./dist/components.js"
-    },
-    "./managers/plugins": {
-      "types": "./dist/managers/plugins.d.ts",
-      "import": "./dist/managers/plugins.js"
-    },
-    "./managers/themes": {
-      "types": "./dist/managers/themes.d.ts",
-      "import": "./dist/managers/themes.js"
-    },
-    "./metro": {
-      "types": "./dist/metro.d.ts",
-      "import": "./dist/metro.js"
-    },
-    "./patcher": {
-      "types": "./dist/patcher.d.ts",
-      "import": "./dist/patcher.js"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/index.d.ts"
-      ],
-      "api/assets": [
-        "./dist/api/assets.d.ts"
-      ],
-      "api/clyde": [
-        "./dist/api/clyde.d.ts"
-      ],
-      "api/commands": [
-        "./dist/api/commands.d.ts"
-      ],
-      "api/native": [
-        "./dist/api/native.d.ts"
-      ],
-      "api/settings": [
-        "./dist/api/settings.d.ts"
-      ],
-      "common": [
-        "./dist/common.d.ts"
-      ],
-      "components": [
-        "./dist/components.d.ts"
-      ],
-      "managers/plugins": [
-        "./dist/managers/plugins.d.ts"
-      ],
-      "managers/themes": [
-        "./dist/managers/themes.d.ts"
-      ],
-      "metro": [
-        "./dist/metro.d.ts"
-      ],
-      "patcher": [
-        "./dist/patcher.d.ts"
-      ]
-    }
-  }
+   "name": "enmity",
+   "description": "API wrapper for Enmity.",
+   "version": "1.1.2",
+   "license": "GPL-3.0",
+   "scripts": {
+      "build": "tsc",
+      "prepub": "copy package.json dist && copy README.md dist",
+      "pub": "cd dist & npm publish",
+      "postpub": "cd dist & del package.json & del README.md",
+      "release": "pnpm build && pnpm prepub && pnpm pub && pnpm postpub",
+      "docs": "typedoc --readme none --entryPointStrategy expand ./lib"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/enmity-mod/enmity-api.git"
+   },
+   "bugs": {
+      "url": "https://github.com/enmity-mod/enmity-api/issues"
+   },
+   "devDependencies": {
+      "@types/lodash": "^4.14.182",
+      "@types/react": "^18.0.9",
+      "@types/react-native": "^0.67.7",
+      "@typescript-eslint/eslint-plugin": "^5.14.0",
+      "@typescript-eslint/parser": "^5.14.0",
+      "eslint": "^8.11.0",
+      "typedoc": "^0.22.13",
+      "typescript": "^4.5.4"
+   }
 }
