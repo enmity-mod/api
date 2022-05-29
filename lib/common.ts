@@ -226,9 +226,9 @@ export interface EntityAuthor {
 /**
  * Type alias for a module.
  *
- * Can either be a Function or an Object.
+ * Can be anything.
  */
-export type Module = Function | Record<string, any>;
+export type Module = any;
 
 interface API extends Record<string, any> {
    modules: typeof import('./metro');

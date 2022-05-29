@@ -1,18 +1,20 @@
 {
-  "compilerOptions": {
-    "module": "es2020",
-    "esModuleInterop": true,
-    "lib": ["ES2019"],
-    "target": "ES2019",
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "removeComments": true,
-    "outDir": "./dist",
-    "sourceMap": false,
-    "declaration": true,
-    "baseUrl": ".",
-  },
-  "include": [
-    "lib",
-  ],
+   "compilerOptions": {
+      "module": "es2020",
+      "esModuleInterop": true,
+      "lib": [
+         "ES2019"
+      ],
+      "target": "ES2019",
+      "moduleResolution": "node",
+      "noImplicitAny": true,
+      "removeComments": true,
+      "outDir": "./dist",
+      "sourceMap": false,
+      "declaration": true,
+      "baseUrl": ".",
+   },
+   "include": [
+      "lib",
+   ],
 }

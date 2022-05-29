@@ -8,73 +8,73 @@ import React from 'react';
  * Represents a plugin.
  */
 export interface Plugin {
-  /**
-   * Name of the plugin.
-   */
-  name: string;
+   /**
+    * Name of the plugin.
+    */
+   name: string;
 
-  /**
-   * Description of the plugin.
-   */
-  description?: string;
+   /**
+    * Description of the plugin.
+    */
+   description?: string;
 
-  /**
-   * Color of the plugin in settings.
-   */
-  color?: string;
+   /**
+    * Color of the plugin in settings.
+    */
+   color?: string;
 
-  /**
-   * Version of the plugin.
-   */
-  version?: string;
+   /**
+    * Version of the plugin.
+    */
+   version?: string;
 
-  /**
-   * Authors of the plugin.
-   */
-  authors?: EntityAuthor[] | string[];
+   /**
+    * Authors of the plugin.
+    */
+   authors?: EntityAuthor[] | string[];
 
-  /**
-   * List of commands of the plugin.
-   */
-  commands?: Command[];
+   /**
+    * List of commands of the plugin.
+    */
+   commands?: Command[];
 
-  /**
-   * List of patchers of the plugin.
-   */
-  patches?: Patcher[];
+   /**
+    * List of patchers of the plugin.
+    */
+   patches?: Patcher[];
 
-  /**
-   * Settings panel of the plugin.
-   */
-  getSettingsPanel: React.ComponentType;
+   /**
+    * Settings panel of the plugin.
+    */
+   getSettingsPanel?: React.ComponentType;
 
-  /**
-   * Executed when the plugin is started.
-   */
-  onStart: () => void;
+   /**
+    * Executed when the plugin is started.
+    */
+   onStart: () => void;
 
-  /**
-   * Executed when the plugin is stopped.
-   */
-  onStop: () => void;
+   /**
+    * Executed when the plugin is stopped.
+    */
+   onStop: () => void;
 
-  /**
-   * Executed when the plugin is enabled.
-   *
-   * This method is overwritten by Enmity to do internal stuff.
-   *
-   * DO NOT OVERRIDE THIS.
-   */
-  onEnable?: () => void;
+   /**
+    * Executed when the plugin is enabled.
+    *
+    * This method is overwritten by Enmity to do internal stuff.
+    *
+    * DO NOT OVERRIDE THIS.
+    */
+   onEnable?: () => void;
 
-  /**
-   * Executed when the plugin is disabled.
-   *
-   * This method is overwritten by Enmity to do internal stuff.
-   *
-   * DO NOT OVERRIDE THIS.
-   */
-  onDisable?: () => void;
+   /**
+    * Executed when the plugin is disabled.
+    *
+    * This method is overwritten by Enmity to do internal stuff.
+    *
+    * DO NOT OVERRIDE THIS.
+    */
+   onDisable?: () => void;
 }
 
 /**
@@ -82,7 +82,7 @@ export interface Plugin {
  * @param {Plugin} plugin Plugin to register.
  */
 export function registerPlugin(plugin: Plugin): void {
-  window.enmity.plugins.registerPlugin(plugin);
+   window.enmity.plugins.registerPlugin(plugin);
 }
 
 /**
@@ -91,7 +91,7 @@ export function registerPlugin(plugin: Plugin): void {
  * @returns {Plugin}
  */
 export function getPlugin(name: string): Plugin {
-  return window.enmity.plugins.getPlugin(name);
+   return window.enmity.plugins.getPlugin(name);
 }
 
 /**
@@ -99,5 +99,5 @@ export function getPlugin(name: string): Plugin {
  * @returns {Plugin[]}
  */
 export function getPlugins(): Plugin[] {
-  return window.enmity.plugins.getPlugins();
+   return window.enmity.plugins.getPlugins();
 }

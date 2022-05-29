@@ -10,7 +10,7 @@ export interface Plugin {
     authors?: EntityAuthor[] | string[];
     commands?: Command[];
     patches?: Patcher[];
-    getSettingsPanel: React.ComponentType;
+    getSettingsPanel?: React.ComponentType;
     onStart: () => void;
     onStop: () => void;
     onEnable?: () => void;

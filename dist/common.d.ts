@@ -159,7 +159,7 @@ export interface EntityAuthor {
     name: string;
     id?: string;
 }
-export declare type Module = Function | Record<string, any>;
+export declare type Module = any;
 interface API extends Record<string, any> {
     modules: typeof import('./metro');
     themer: typeof import('./managers/themes');
