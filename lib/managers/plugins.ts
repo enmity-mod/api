@@ -16,7 +16,7 @@ export interface Plugin {
    /**
     * Description of the plugin.
     */
-   description?: string;
+   description: string;
 
    /**
     * Color of the plugin in settings.
@@ -26,12 +26,12 @@ export interface Plugin {
    /**
     * Version of the plugin.
     */
-   version?: string;
+   version: string;
 
    /**
     * Authors of the plugin.
     */
-   authors?: EntityAuthor[] | string[];
+   authors: EntityAuthor[] | string[];
 
    /**
     * List of commands of the plugin.
