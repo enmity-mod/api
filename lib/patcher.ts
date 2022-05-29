@@ -1,54 +1,37 @@
-/**
- * Type alias for Mdl.
- *
- * Can either be a Function or an Object.
- */
-export type Mdl = Function | object;
+import { Module } from './common';
 
 /**
  * Callback for a patch.
- *
- * Self is a reference to this in the context of the patched function.
- *
- * Args is the list of arguments sent to the patched function.
- *
- * Res is a reference to the original function.
+ * @param {any} self A reference to `this` in the context of the patched function.
+ * @param {any[]} args The list of arguments sent to the patched function.
+ * @param {any} res A reference to the original function for before and instead patches, and the result of the original function for after patches.
+ * @returns {void|any} The new arguments or return value of the function. To keep the original arguments or return value (probably modified in place in the function body), don't return anything.
  */
-export type PatchCallback = (self: any, args: any[], res: any) => void;
+export type PatchCallback = (self: any, args: any[], res: any) => void | any;
 
 /**
- * Interface that includes unpatchAll.
- */
-export interface Patchable {
-  /**
-   * Unpatch all the patches.
-   */
-  unpatchAll: () => void;
-}
-
-/**
- * Represents a patcher.
+ * Represents a patch.
  *
- * A patcher is used to patch function calls and such.
+ * A patch is used to modify function calls and such.
  */
-export interface Patcher {
+export interface Patch {
   /**
-   * Name of the caller
+   * Name of the caller.
    */
   caller: string;
 
   /**
-   * Type of the patcher
+   * Type of the patch (before/instead/after).
    */
   type: string;
 
   /**
-   * Internal ID of the patcher
+   * Internal ID of the patch.
    */
   id: number;
 
   /**
-   * Callback of the patcher.
+   * Callback of the patch.
    */
   callback: PatchCallback;
 
@@ -59,43 +42,48 @@ export interface Patcher {
 }
 
 /**
- * Represents a patch.
+ * Represents a patcher.
  */
-export interface Patch extends Patchable {
+export interface Patcher {
   /**
-   * Get the list of patcher used by this patch.
-   * @param id Name of the caller
-   * @returns {Patcher[]} Lists of patcher
+   * Get the list of patches used by this patcher.
+   * @param id Name of the caller.
+   * @returns {Patch[]} List of patches.
    */
-  getPatchesByCaller: (id: string) => Patcher[];
+  getPatchesByCaller: (id: string) => Patch[];
 
   /**
    * Apply a before patch.
    *
    * Patch will be executed before the original function is called.
    */
-  before: (mdl: Mdl, func: string, callback: PatchCallback) => Patchable;
+  before: (mdl: Module, func: string, callback: PatchCallback) => () => void;
 
   /**
    * Apply an instead patch.
    *
    * Patch will replace the original function call.
    */
-  instead: (mdl: Mdl, func: string, callback: PatchCallback) => Patchable;
+  instead: (mdl: Module, func: string, callback: PatchCallback) => () => void;
 
   /**
    * Apply an after patch.
    *
    * Patch will be executed after the original function has been called.
    */
-  after: (mdl: Mdl, func: string, callback: PatchCallback) => Patchable;
+  after: (mdl: Module, func: string, callback: PatchCallback) => () => void;
+
+  /**
+   * Unpatch all patches from this patcher.
+   */
+  unpatchAll: () => void;
 }
 
 /**
- * Create a patch.
- * @see {@link Patch}
+ * Create a patcher.
+ * @see {@link Patcher}
  */
-export function create(name: string): Patch {
+export function create(name: string): Patcher {
   return window.enmity.patcher.create(name);
 }
 
@@ -106,14 +94,11 @@ export function create(name: string): Patch {
  */
 export function before(
   caller: string,
-  mdl: Mdl,
+  mdl: Module,
   func: string,
   callback: PatchCallback,
-): Patchable {
-  const unpatch = window.enmity.patcher.before(caller, mdl, func, callback);
-  return {
-    unpatchAll: unpatch,
-  };
+): () => void {
+  return window.enmity.patcher.before(caller, mdl, func, callback);
 }
 
 /**
@@ -123,14 +108,11 @@ export function before(
  */
 export function instead(
   caller: string,
-  mdl: Mdl,
+  mdl: Module,
   func: string,
   callback: PatchCallback,
-): Patchable {
-  const unpatch = window.enmity.patcher.instead(caller, mdl, func, callback);
-  return {
-    unpatchAll: unpatch,
-  };
+): () => void {
+  return window.enmity.patcher.instead(caller, mdl, func, callback);
 }
 
 /**
@@ -140,12 +122,9 @@ export function instead(
  */
 export function after(
   caller: string,
-  mdl: Mdl,
+  mdl: Module,
   func: string,
   callback: PatchCallback,
-): Patchable {
-  const unpatch = window.enmity.patcher.after(caller, mdl, func, callback);
-  return {
-    unpatchAll: unpatch,
-  };
+): () => void {
+  return window.enmity.patcher.after(caller, mdl, func, callback);
 }

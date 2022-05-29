@@ -1,3 +1,5 @@
+// Discord types
+
 /**
  * Represents a Discord channel.
  */
@@ -7,8 +9,9 @@ export interface Channel {
   type: number;
   name: string;
   position: number;
-  recipients: any[];
-  rawRecipients: any[];
+  topic?: string;
+  recipients: string[];
+  rawRecipients: User[];
   permissionOverwrites: Record<string, ChannelPermission>;
   bitrate: number;
   videoQualityMode?: number;
@@ -18,7 +21,7 @@ export interface Channel {
   icon?: string;
   banner?: string;
   application_id?: string;
-  nicks: any;
+  nicks: Object;
   nsfw: boolean;
   parent_id: string;
   memberListId?: string;
@@ -29,9 +32,9 @@ export interface Channel {
   lastPinTimestamp: string;
   messageCount?: number;
   memberCount?: number;
-  memberIdsPreview?: any;
-  member?: any;
-  threadMetadata?: any;
+  memberIdsPreview?: string[];
+  member?: ThreadMember;
+  threadMetadata?: ThreadMetadata;
 }
 
 /**
@@ -43,7 +46,7 @@ export interface Permission {
 }
 
 /**
- * Represents a Discord channel permission
+ * Represents a Discord channel permission.
  */
 export interface ChannelPermission {
   id: string;
@@ -53,7 +56,7 @@ export interface ChannelPermission {
 }
 
 /**
- * Represents a Discord message
+ * Represents a Discord message.
  */
 export interface Message {
   guild: Guild;
@@ -61,7 +64,31 @@ export interface Message {
 }
 
 /**
- * Represents a Discord guild
+ * Represents Discord thread metadata.
+ */
+export interface ThreadMetadata {
+  archived: boolean;
+  autoArchiveDuration: number;
+  archiveTimestamp: string;
+  locked: boolean;
+  invitable?: boolean;
+  createTimestamp?: string;
+}
+
+/**
+ * Represents a Discord thread member.
+ */
+export interface ThreadMember {
+  id?: string;
+  user_id?: string;
+  joinTimestamp: string;
+  flags: number;
+  muted?: boolean;
+  muteConfig?: null;
+}
+
+/**
+ * Represents a Discord guild.
  */
 export interface Guild {
   id: string;
@@ -71,7 +98,7 @@ export interface Guild {
   icon?: string;
   splash?: string;
   banner?: string;
-  features: Record<any, any>;
+  features: Set<string>;
   preferredLocale: string;
   roles: Record<string, Role>;
   afkChannelId: string;
@@ -100,7 +127,7 @@ export interface Guild {
 }
 
 /**
- * Represents a Discord role
+ * Represents a Discord role.
  */
 export interface Role {
   id: string;
@@ -113,13 +140,13 @@ export interface Role {
   colorString: string;
   hoist: boolean;
   managed: boolean;
-  tags?: any;
+  tags?: RoleTags;
   icon?: string;
   unicodeEmoji?: string;
 }
 
 /**
- * Represents a Discord user
+ * Represents a Discord user.
  */
 export interface User {
   id: string;
@@ -127,6 +154,7 @@ export interface User {
   username: string;
   bio: string;
   avatar: string;
+  avatarDecoration?: null;
   banner: string;
   accentColor?: null | string;
   publicFlags: number;
@@ -143,11 +171,12 @@ export interface User {
   premiumUsageFlags?: number;
   phone?: string;
   nsfwAllowed?: boolean;
-  guildMemberAvatars?: unknown;
+  guildMemberAvatars?: Record<string, string>;
+  pronouns?: string;
 }
 
 /**
- * Represents a Discord account
+ * Represents a Discord account.
  */
 export interface Account {
   type: string;
@@ -157,7 +186,7 @@ export interface Account {
 }
 
 /**
- * Represents a Discord profile
+ * Represents a Discord profile.
  */
 export interface Profile {
   user: User;
@@ -165,4 +194,59 @@ export interface Profile {
   premium_since: string;
   premium_guild_since: string;
   mutual_guilds: Guild[];
+}
+
+/**
+ * Represents the tags of a Discord role.
+ */
+export interface RoleTags {
+  bot_id?: string;
+  integration_id?: string;
+  premium_subscriber?: null;
+}
+
+
+// enmity-api types
+
+/**
+ * Represents an Enmity plugin or theme author.
+ */
+export interface EntityAuthor {
+  /**
+   * Name of the author.
+   */
+  name: string;
+
+  /**
+   * User ID of the author.
+   */
+  id?: string;
+}
+
+/**
+ * Type alias for a module.
+ *
+ * Can either be a Function or an Object.
+ */
+export type Module = Function | Record<string, any>;
+
+interface API extends Record<string, any> {
+  modules: typeof import('./metro');
+  themer: typeof import('./managers/themes');
+  patcher: typeof import('./patcher');
+  version: string;
+  plugins: typeof import('./managers/plugins');
+  clyde: typeof import('./api/clyde');
+  commands: typeof import('./api/commands');
+  settings: typeof import('./api/settings');
+  components: typeof import('./components');
+  native: typeof import('./api/native');
+}
+
+interface Window {
+  enmity: API;
+}
+
+declare global {
+  const window: Window;
 }
