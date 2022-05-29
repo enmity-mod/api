@@ -1,64 +1,64 @@
-import { Module } from './common';
+import { Module } from '../common';
 
 /**
  * Options interface that includes `all`, `traverse`, and `defaultExport`.
  */
 export interface BaseOptions {
-  /**
-   * Whether to return all modules that satisfy a filter.
-   *
-   * Defaults to false.
-   */
-  all?: boolean;
+   /**
+    * Whether to return all modules that satisfy a filter.
+    *
+    * Defaults to false.
+    */
+   all?: boolean;
 
-  /**
-   * Whether to search within modules rather than just at the top level of their exports.
-   *
-   * Defaults to true.
-   */
-  traverse?: boolean;
+   /**
+    * Whether to search within modules rather than just at the top level of their exports.
+    *
+    * Defaults to true.
+    */
+   traverse?: boolean;
 
-  /**
-   * Whether to return the default export of a module if available, rather than the entire module.
-   *
-   * Defaults to true.
-   */
-  defaultExport?: boolean;
+   /**
+    * Whether to return the default export of a module if available, rather than the entire module.
+    *
+    * Defaults to true.
+    */
+   defaultExport?: boolean;
 }
 
 /**
  * Options interface that includes `bulk`.
  */
 export interface ConditionalBulk extends BaseOptions {
-  /**
-   * Whether to mark a
-   */
-  bulk?: true;
+   /**
+    * Whether to mark a
+    */
+   bulk?: true;
 }
 
 /**
  * Options interface that includes `default`.
  */
 export interface DisplayNameOptions {
-  /**
-   * Whether to return the default export of a module if available, rather than the entire module.
-   *
-   * Defaults to true.
-   * @see {@link BaseOptions.defaultExport}
-   */
-  default?: boolean;
+   /**
+    * Whether to return the default export of a module if available, rather than the entire module.
+    *
+    * Defaults to true.
+    * @see {@link BaseOptions.defaultExport}
+    */
+   default?: boolean;
 }
 
 /**
  * Options interface that includes `caseSensitive`.
  */
 export interface KeywordOptions extends BaseOptions {
-  /**
-   * Whether the keyword search should be case-sensitive.
-   *
-   * Defaults to false.
-   */
-  caseSensitive?: boolean;
+   /**
+    * Whether the keyword search should be case-sensitive.
+    *
+    * Defaults to false.
+    */
+   caseSensitive?: boolean;
 }
 
 /**
@@ -72,33 +72,33 @@ export type SearchFilter = (module?: Module) => boolean;
  * Functions to generate {@link SearchFilter filters} that can be used as arguments for {@link getModule}, {@link getModules}, or {@link bulk} to retrieve modules.
  */
 export const filters = {
-  /**
-   * Generate a {@link SearchFilter} based on a module's properties.
-   * @param {string[]} mdls Properties that must be present for a module to satisfy the filter.
-   * @returns {SearchFilter}
-   */
-  byProps: (...mdls: string[]): SearchFilter => window.enmity.modules.filters.byProps(...mdls),
+   /**
+    * Generate a {@link SearchFilter} based on a module's properties.
+    * @param {string[]} mdls Properties that must be present for a module to satisfy the filter.
+    * @returns {SearchFilter}
+    */
+   byProps: (...mdls: string[]): SearchFilter => window.enmity.modules.filters.byProps(...mdls),
 
-  /**
-   * Generate a {@link SearchFilter} based on a module's name.
-   * @param {string} name The module's name.
-   * @returns {SearchFilter}
-   */
-  byName: (name: string): SearchFilter => window.enmity.modules.filters.byName(name),
+   /**
+    * Generate a {@link SearchFilter} based on a module's name.
+    * @param {string} name The module's name.
+    * @returns {SearchFilter}
+    */
+   byName: (name: string): SearchFilter => window.enmity.modules.filters.byName(name),
 
-  /**
-   * Generate a {@link SearchFilter} based on a module's type name.
-   * @param {string} name The module's type name.
-   * @returns {SearchFilter}
-   */
-  byTypeName: (name: string): SearchFilter => window.enmity.modules.filters.byTypeName(name),
+   /**
+    * Generate a {@link SearchFilter} based on a module's type name.
+    * @param {string} name The module's type name.
+    * @returns {SearchFilter}
+    */
+   byTypeName: (name: string): SearchFilter => window.enmity.modules.filters.byTypeName(name),
 
-  /**
-   * Generate a {@link SearchFilter} based on a module's display name.
-   * @param {string} name The module's display name.
-   * @returns {SearchFilter}
-   */
-  byDisplayName: (name: string): SearchFilter => window.enmity.modules.filters.byDisplayName(name),
+   /**
+    * Generate a {@link SearchFilter} based on a module's display name.
+    * @param {string} name The module's display name.
+    * @returns {SearchFilter}
+    */
+   byDisplayName: (name: string): SearchFilter => window.enmity.modules.filters.byDisplayName(name),
 };
 
 /**
@@ -110,7 +110,7 @@ export const filters = {
  * @returns {Module|Module[]|undefined} A module that satisfies the filter, or undefined if no module was found. Will return an array of modules if `all` in `options` is set to true.
  */
 export function getModule(filter: SearchFilter, options?: BaseOptions): Module | Module[] | undefined {
-  return window.enmity.modules.getModule(filter, options);
+   return window.enmity.modules.getModule(filter, options);
 }
 
 /**
@@ -119,7 +119,7 @@ export function getModule(filter: SearchFilter, options?: BaseOptions): Module |
  * @returns {Module[]} The modules that satisfy the filter.
  */
 export function getModules(filter: SearchFilter): Module[] {
-  return window.enmity.modules.getModules(filter);
+   return window.enmity.modules.getModules(filter);
 }
 
 /**
@@ -130,7 +130,7 @@ export function getModules(filter: SearchFilter): Module[] {
  * @returns {(Module|undefined)[]} The modules that satisfy the filters, in the order of the filters.
  */
 export function bulk(...filters: SearchFilter[]): (Module | undefined)[] {
-  return window.enmity.modules.bulk(...filters);
+   return window.enmity.modules.bulk(...filters);
 }
 
 /**
@@ -139,10 +139,10 @@ export function bulk(...filters: SearchFilter[]): (Module | undefined)[] {
  * @returns {(Module|undefined)|(Module|undefined)[]} A module that has the given properties, or undefined if no module was found. Will return an array of modules if `bulk` or `all` in the options are set to true.
  */
 export function getByProps(...options: string[] | [
-  ...props: string[] | (string[])[],
-  options: ConditionalBulk
+   ...props: string[] | (string[])[],
+   options: ConditionalBulk
 ]): (Module | undefined) | (Module | undefined)[] {
-  return window.enmity.modules.getByProps(...options);
+   return window.enmity.modules.getByProps(...options);
 }
 
 /**
@@ -151,10 +151,10 @@ export function getByProps(...options: string[] | [
  * @returns {(Module|undefined)|(Module|undefined)[]} A module that has the given display name, or undefined if no module was found.
  */
 export function getByDisplayName(...options: [
-  displayName: string,
-  options?: DisplayNameOptions & ConditionalBulk
+   displayName: string,
+   options?: DisplayNameOptions & ConditionalBulk
 ] | string[]): (Module | undefined) | (Module | undefined)[] {
-  return window.enmity.modules.getByDisplayName(...options);
+   return window.enmity.modules.getByDisplayName(...options);
 }
 
 /**
@@ -165,10 +165,10 @@ export function getByDisplayName(...options: [
  * @returns {(Module|undefined)|(Module|undefined)[]} A module that has the given type name, or undefined if no module was found.
  */
 export function getByTypeName(...options: [
-  typeName: string,
-  options?: DisplayNameOptions & ConditionalBulk
+   typeName: string,
+   options?: DisplayNameOptions & ConditionalBulk
 ] | string[]): (Module | undefined) | (Module | undefined)[] {
-  return window.enmity.modules.getByTypeName(...options);
+   return window.enmity.modules.getByTypeName(...options);
 }
 
 /**
@@ -177,10 +177,10 @@ export function getByTypeName(...options: [
  * @returns {(Module|undefined)|(Module|undefined)[]} A module that has the given name, or undefined if no module was found.
  */
 export function getByName(...options: [
-  displayName: string,
-  options?: DisplayNameOptions & ConditionalBulk
+   displayName: string,
+   options?: DisplayNameOptions & ConditionalBulk
 ] | string[]): (Module | undefined) | (Module | undefined)[] {
-  return window.enmity.modules.getByName(...options);
+   return window.enmity.modules.getByName(...options);
 }
 
 /**
@@ -189,8 +189,10 @@ export function getByName(...options: [
  * @returns {Module|Module[]|undefined} A module that has the given keyword, or undefined if no module was found. Will return an array of modules if `all` in the options is set to true.
  */
 export function getByKeyword(...options: [
-  keyword: string,
-  options?: DisplayNameOptions & KeywordOptions
+   keyword: string,
+   options?: DisplayNameOptions & KeywordOptions
 ]): Module | Module[] | undefined {
-  return window.enmity.modules.getByKeyword(...options);
+   return window.enmity.modules.getByKeyword(...options);
 }
+
+export const common: import('./common').Common = window.enmity.modules.common;
