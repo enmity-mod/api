@@ -82,23 +82,26 @@ export const filters = {
    /**
     * Generate a {@link SearchFilter} based on a module's name.
     * @param {string} name The module's name.
+    * @param {string} defaultExport Whether to return the inner default property if found in an esModule.
     * @returns {SearchFilter}
     */
-   byName: (name: string): SearchFilter => window.enmity.modules.filters.byName(name),
+   byName: (name: string, defaultExport: boolean): SearchFilter => window.enmity.modules.filters.byName(name, defaultExport),
 
    /**
     * Generate a {@link SearchFilter} based on a module's type name.
     * @param {string} name The module's type name.
+    * @param {string} defaultExport Whether to return the inner default property if found in an esModule.
     * @returns {SearchFilter}
     */
-   byTypeName: (name: string): SearchFilter => window.enmity.modules.filters.byTypeName(name),
+   byTypeName: (name: string, defaultExport: boolean): SearchFilter => window.enmity.modules.filters.byTypeName(name, defaultExport),
 
    /**
     * Generate a {@link SearchFilter} based on a module's display name.
     * @param {string} name The module's display name.
+    * @param {string} defaultExport Whether to return the inner default property if found in an esModule.
     * @returns {SearchFilter}
     */
-   byDisplayName: (name: string): SearchFilter => window.enmity.modules.filters.byDisplayName(name),
+   byDisplayName: (name: string, defaultExport: boolean): SearchFilter => window.enmity.modules.filters.byDisplayName(name, defaultExport),
 };
 
 /**
