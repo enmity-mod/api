@@ -4,7 +4,7 @@ const { native } = window.enmity;
  * Reload Discord.
  */
 export function reload(): void {
-  native.reload();
+   native.reload();
 }
 
 /**

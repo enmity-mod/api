@@ -6,5 +6,5 @@
  * @param {string} avatarURL Avatar used for the message.
  */
 export function sendReply(channelID: string, content: (string | object), username?: string, avatarURL?: string): void {
-  window.enmity.clyde.sendReply(channelID, content, username, avatarURL);
+   window.enmity.clyde.sendReply(channelID, content, username, avatarURL);
 }

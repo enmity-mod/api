@@ -3,6 +3,7 @@ import { EntityAuthor } from '../common';
 import { Patcher } from '../patcher';
 
 import React from 'react';
+import { SettingsStore } from 'lib/api/settings';
 
 /**
  * Represents a plugin.
@@ -46,7 +47,7 @@ export interface Plugin {
    /**
     * Settings panel of the plugin.
     */
-   getSettingsPanel?: React.ComponentType;
+   getSettingsPanel?: (props: { settings: SettingsStore; }) => React.ComponentType;
 
    /**
     * Executed when the plugin is started.

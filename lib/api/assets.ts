@@ -1,45 +1,45 @@
 export interface Asset {
-  __packager_asset?: boolean;
+   __packager_asset?: boolean;
 
-  /**
-   * Name of the asset.
-   */
-  name: string;
+   /**
+    * Name of the asset.
+    */
+   name: string;
 
-  /**
-   * Location of the asset in the local assets directory.
-   */
-  httpServerLocation?: string;
+   /**
+    * Location of the asset in the local assets directory.
+    */
+   httpServerLocation?: string;
 
-  /**
-   * Width of the asset.
-   */
-  width: number;
+   /**
+    * Width of the asset.
+    */
+   width: number;
 
-  /**
-   * Height of the asset.
-   */
-  height: number;
+   /**
+    * Height of the asset.
+    */
+   height: number;
 
-  /**
-   * Scales that the asset is available in. For example: [1, 2] means that the asset is available in 1x and 2x sizes.
-   */
-  scales: number[];
+   /**
+    * Scales that the asset is available in. For example: [1, 2] means that the asset is available in 1x and 2x sizes.
+    */
+   scales: number[];
 
-  /**
-   * Hash of the asset.
-   */
-  hash: string;
+   /**
+    * Hash of the asset.
+    */
+   hash: string;
 
-  /**
-   * File extension of the asset.
-   */
-  type: string;
+   /**
+    * File extension of the asset.
+    */
+   type: string;
 
-  /**
-   * ID of the asset.
-   */
-  id: number;
+   /**
+    * ID of the asset.
+    */
+   id: number;
 }
 
 /**
@@ -48,7 +48,7 @@ export interface Asset {
  * @returns {Asset} The asset.
  */
 export function find(filter: (asset: Asset) => boolean): Asset {
-  return window.enmity.assets.find(filter);
+   return window.enmity.assets.find(filter);
 }
 
 /**
@@ -57,7 +57,7 @@ export function find(filter: (asset: Asset) => boolean): Asset {
  * @returns {Asset} The asset.
  */
 export function getByName(name: string): Asset {
-  return window.enmity.assets.getByName(name);
+   return window.enmity.assets.getByName(name);
 }
 
 /**
@@ -66,7 +66,7 @@ export function getByName(name: string): Asset {
  * @returns {Asset} The asset.
  */
 export function getByID(id: number): Asset {
-  return window.enmity.assets.getByID(id);
+   return window.enmity.assets.getByID(id);
 }
 
 /**
@@ -75,5 +75,5 @@ export function getByID(id: number): Asset {
  * @returns {number} ID of the asset.
  */
 export function getIDByName(name: string): number {
-  return window.enmity.assets.getIDByName(name);
+   return window.enmity.assets.getIDByName(name);
 }

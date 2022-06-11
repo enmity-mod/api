@@ -199,14 +199,14 @@ export const FormRadio: React.ComponentType = components.FormRadio;
  * Discord FormRow
  */
 export const FormRow: React.ComponentType & {
-  Arrow: typeof FormArrow;
-  Label: typeof FormLabel;
-  SubLabel: typeof FormSubLabel;
-  Radio: typeof FormRadio;
-  Switch: typeof FormSwitch;
-  Checkbox: typeof FormCheckbox;
-  Checkmark: React.ComponentType;
-  Icon: typeof FormIcon;
+   Arrow: typeof FormArrow;
+   Label: typeof FormLabel;
+   SubLabel: typeof FormSubLabel;
+   Radio: typeof FormRadio;
+   Switch: typeof FormSwitch;
+   Checkbox: typeof FormCheckbox;
+   Checkmark: React.ComponentType;
+   Icon: typeof FormIcon;
 } = components.FormRow;
 
 /**
@@ -242,9 +242,9 @@ export const FormText: React.ForwardRefExoticComponent<{}> = components.FormText
 /**
  * Discord FormTextColors
  */
-export const FormTextColors: Record<string, { color: string }> = components.FormTextColors;
+export const FormTextColors: Record<string, { color: string; }> = components.FormTextColors;
 
 /**
  * Discord FormTextSizes
  */
-export const FormTextSizes: Record<string, { fontSize: number; lineHeight: number }> = components.FormTextSizes;
+export const FormTextSizes: Record<string, { fontSize: number; lineHeight: number; }> = components.FormTextSizes;
