@@ -424,6 +424,7 @@ export interface Common {
    Scenes: {
       default: (...args: any) => any;
    };
+   Moment: any;
 }
 
 export const Constants = window.enmity.modules.common.Constants;
@@ -457,3 +458,4 @@ export const Logger = window.enmity.modules.common.Logger;
 export const Flux = window.enmity.modules.common.Flux;
 export const SVG = window.enmity.modules.common.SVG;
 export const Scenes = window.enmity.modules.common.Scenes;
+export const Moment = window.enmity.modules.common.Moment;
