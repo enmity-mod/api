@@ -87,6 +87,14 @@ export function registerPlugin(plugin: Plugin): void {
 }
 
 /**
+ * Install a plugin.
+ * @param {string} URL Plugin to install.
+ */
+export function installPlugin(url: string): void {
+   window.enmity.plugins.installPlugin(url);
+}
+
+/**
  * Get a plugin by its name.
  * @param {string} name Plugin's name.
  * @returns {Plugin}
